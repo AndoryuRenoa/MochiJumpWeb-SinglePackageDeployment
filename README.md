@@ -11,3 +11,5 @@ https://github.com/AndoryuRenoa/MochiJumpWeb-SinglePackageDeployment/tree/master
 https://github.com/AndoryuRenoa/MochiJumpWeb-SinglePackageDeployment/tree/master/MochiWebDeploy/MochiJumpFront/pom.xml
 
 https://github.com/AndoryuRenoa/MochiJumpWeb-SinglePackageDeployment/blob/master/MochiWebDeploy/MochiJumpLevelEditor2/pom.xml
+
+With a setup like this you can run: "mvn clean install" just as normal
