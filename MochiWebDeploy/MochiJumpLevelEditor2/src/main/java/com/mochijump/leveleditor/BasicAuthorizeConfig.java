@@ -13,12 +13,11 @@ import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
  class BasicAuthorizeConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/", "/mainmenu").permitAll()
+        http.authorizeRequests().antMatchers("/", "/mainmenu", "/runtime.js",
+        		"/polyfills.js", "/favicon.ico", "/vendor.js", "/styles.js", "/main.js").permitAll()
         .anyRequest().authenticated()
         .and()
-    .formLogin()
-        .loginPage("/login")
-        .permitAll();;
+        .httpBasic();
     }
     
 }
