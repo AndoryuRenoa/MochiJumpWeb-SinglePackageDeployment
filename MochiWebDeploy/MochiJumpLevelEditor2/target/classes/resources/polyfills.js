@@ -5473,7 +5473,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Andrew\Documents\maven-projects\MochiWebDeploy\MochiJumpFront\src\main\web\src\polyfills.ts */"./src/polyfills.ts");
+module.exports = __webpack_require__(/*! C:\Users\Andrew\Documents\GitHub\MochiJumpWeb-SinglePackageDeployment\MochiWebDeploy\MochiJumpFront\src\main\web\src\polyfills.ts */"./src/polyfills.ts");
 
 
 /***/ })

@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -48,6 +49,11 @@ public class MainController {
 	public @ResponseBody String getVersion(){
 			return "0.2.4";
 	}
+	
+	@RequestMapping("/user")
+	  public Principal user(Principal user) {
+	    return user;
+	  }
 	
 	
 	@GetMapping(path="/returnAll")
