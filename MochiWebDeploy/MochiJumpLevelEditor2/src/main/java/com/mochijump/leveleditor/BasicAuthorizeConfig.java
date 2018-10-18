@@ -14,8 +14,14 @@ import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/", "/mainmenu", "/runtime.js",
-        		"/polyfills.js", "/favicon.ico", "/vendor.js", "/styles.js", "/main.js").permitAll()
+        		"/polyfills.js", "/favicon.ico", "/vendor.js", "/styles.js", 
+        		"/main.js", "/login").permitAll()
         .anyRequest().authenticated()
+        .and()
+        .formLogin()
+        .loginPage("/login")
+        .defaultSuccessUrl("/mainmenu")
+        .failureUrl("/login")
         .and()
         .httpBasic();
     }
