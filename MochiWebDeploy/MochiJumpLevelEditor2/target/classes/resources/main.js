@@ -831,7 +831,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var PerformLoginService = /** @class */ (function () {
     function PerformLoginService(http) {
         this.http = http;
-        this.loginURL = "/loginProcessor";
+        this.loginURL = "/login";
     }
     PerformLoginService.prototype.postLogin = function (username, password) {
         return this.http.post(this.loginURL, { username: username, password: password }, { observe: 'response' }).subscribe(function (res) { return console.log(res); });

@@ -20,7 +20,6 @@ import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
         .and()
         .formLogin()
         .loginPage("/login")
-        .loginProcessingUrl("/loginProcessor")
         .defaultSuccessUrl("/mainmenu")
         .failureUrl("/login")
         .and()
