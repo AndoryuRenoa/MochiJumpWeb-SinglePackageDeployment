@@ -176,17 +176,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _about_about_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./about/about.component */ "./src/app/about/about.component.ts");
-/* harmony import */ var _draw_level_draw_level_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./draw-level/draw-level.component */ "./src/app/draw-level/draw-level.component.ts");
-/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
-/* harmony import */ var _logout_logout_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./logout/logout.component */ "./src/app/logout/logout.component.ts");
-/* harmony import */ var _main_menu_main_menu_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./main-menu/main-menu.component */ "./src/app/main-menu/main-menu.component.ts");
-/* harmony import */ var _mochi_face_mochi_face_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./mochi-face/mochi-face.component */ "./src/app/mochi-face/mochi-face.component.ts");
-/* harmony import */ var _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./sign-up/sign-up.component */ "./src/app/sign-up/sign-up.component.ts");
-/* harmony import */ var _main_menu_about_button_about_button_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./main-menu/about-button/about-button.component */ "./src/app/main-menu/about-button/about-button.component.ts");
-/* harmony import */ var _main_menu_level_edit_button_level_edit_button_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./main-menu/level-edit-button/level-edit-button.component */ "./src/app/main-menu/level-edit-button/level-edit-button.component.ts");
-/* harmony import */ var _sign_up_sign_up_complete_sign_up_complete_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./sign-up/sign-up-complete/sign-up-complete.component */ "./src/app/sign-up/sign-up-complete/sign-up-complete.component.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _about_about_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./about/about.component */ "./src/app/about/about.component.ts");
+/* harmony import */ var _draw_level_draw_level_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./draw-level/draw-level.component */ "./src/app/draw-level/draw-level.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _logout_logout_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./logout/logout.component */ "./src/app/logout/logout.component.ts");
+/* harmony import */ var _main_menu_main_menu_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./main-menu/main-menu.component */ "./src/app/main-menu/main-menu.component.ts");
+/* harmony import */ var _mochi_face_mochi_face_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./mochi-face/mochi-face.component */ "./src/app/mochi-face/mochi-face.component.ts");
+/* harmony import */ var _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./sign-up/sign-up.component */ "./src/app/sign-up/sign-up.component.ts");
+/* harmony import */ var _main_menu_about_button_about_button_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./main-menu/about-button/about-button.component */ "./src/app/main-menu/about-button/about-button.component.ts");
+/* harmony import */ var _main_menu_level_edit_button_level_edit_button_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./main-menu/level-edit-button/level-edit-button.component */ "./src/app/main-menu/level-edit-button/level-edit-button.component.ts");
+/* harmony import */ var _sign_up_sign_up_complete_sign_up_complete_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./sign-up/sign-up-complete/sign-up-complete.component */ "./src/app/sign-up/sign-up-complete/sign-up-complete.component.ts");
+/* harmony import */ var _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./login-page/login-page.component */ "./src/app/login-page/login-page.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -209,12 +211,15 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
 var appRoutes = [
-    { path: 'about', component: _about_about_component__WEBPACK_IMPORTED_MODULE_6__["AboutComponent"] },
-    { path: 'mainmenu', component: _main_menu_main_menu_component__WEBPACK_IMPORTED_MODULE_10__["MainMenuComponent"] },
-    { path: 'levelEditor', component: _draw_level_draw_level_component__WEBPACK_IMPORTED_MODULE_7__["DrawLevelComponent"] },
-    { path: 'signUp', component: _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_12__["SignUpComponent"] },
-    { path: 'signUpComplete', component: _sign_up_sign_up_complete_sign_up_complete_component__WEBPACK_IMPORTED_MODULE_15__["SignUpCompleteComponent"] },
+    { path: 'about', component: _about_about_component__WEBPACK_IMPORTED_MODULE_7__["AboutComponent"] },
+    { path: 'mainmenu', component: _main_menu_main_menu_component__WEBPACK_IMPORTED_MODULE_11__["MainMenuComponent"] },
+    { path: 'levelEditor', component: _draw_level_draw_level_component__WEBPACK_IMPORTED_MODULE_8__["DrawLevelComponent"] },
+    { path: 'signUp', component: _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_13__["SignUpComponent"] },
+    { path: 'signUpComplete', component: _sign_up_sign_up_complete_sign_up_complete_component__WEBPACK_IMPORTED_MODULE_16__["SignUpCompleteComponent"] },
+    { path: 'login', component: _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_17__["LoginPageComponent"] },
     { path: '', redirectTo: '/mainmenu', pathMatch: 'full' }
 ];
 var AppModule = /** @class */ (function () {
@@ -223,26 +228,28 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
-                _about_about_component__WEBPACK_IMPORTED_MODULE_6__["AboutComponent"],
-                _draw_level_draw_level_component__WEBPACK_IMPORTED_MODULE_7__["DrawLevelComponent"],
-                _login_login_component__WEBPACK_IMPORTED_MODULE_8__["LoginComponent"],
-                _logout_logout_component__WEBPACK_IMPORTED_MODULE_9__["LogoutComponent"],
-                _main_menu_main_menu_component__WEBPACK_IMPORTED_MODULE_10__["MainMenuComponent"],
-                _mochi_face_mochi_face_component__WEBPACK_IMPORTED_MODULE_11__["MochiFaceComponent"],
-                _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_12__["SignUpComponent"],
-                _main_menu_about_button_about_button_component__WEBPACK_IMPORTED_MODULE_13__["AboutButtonComponent"],
-                _main_menu_level_edit_button_level_edit_button_component__WEBPACK_IMPORTED_MODULE_14__["LevelEditButtonComponent"],
-                _sign_up_sign_up_complete_sign_up_complete_component__WEBPACK_IMPORTED_MODULE_15__["SignUpCompleteComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
+                _about_about_component__WEBPACK_IMPORTED_MODULE_7__["AboutComponent"],
+                _draw_level_draw_level_component__WEBPACK_IMPORTED_MODULE_8__["DrawLevelComponent"],
+                _login_login_component__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"],
+                _logout_logout_component__WEBPACK_IMPORTED_MODULE_10__["LogoutComponent"],
+                _main_menu_main_menu_component__WEBPACK_IMPORTED_MODULE_11__["MainMenuComponent"],
+                _mochi_face_mochi_face_component__WEBPACK_IMPORTED_MODULE_12__["MochiFaceComponent"],
+                _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_13__["SignUpComponent"],
+                _main_menu_about_button_about_button_component__WEBPACK_IMPORTED_MODULE_14__["AboutButtonComponent"],
+                _main_menu_level_edit_button_level_edit_button_component__WEBPACK_IMPORTED_MODULE_15__["LevelEditButtonComponent"],
+                _sign_up_sign_up_complete_sign_up_complete_component__WEBPACK_IMPORTED_MODULE_16__["SignUpCompleteComponent"],
+                _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_17__["LoginPageComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot(appRoutes),
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_3__["BrowserAnimationsModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"]
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"]
             ],
             providers: [],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -315,6 +322,80 @@ var DrawLevelComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/login-page/login-page.component.css":
+/*!*****************************************************!*\
+  !*** ./src/app/login-page/login-page.component.css ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/login-page/login-page.component.html":
+/*!******************************************************!*\
+  !*** ./src/app/login-page/login-page.component.html ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class = 'loginBody'>\n  <div class= 'loginForm'>\n    \n    User Name: <input #userName (keyup.enter)=\"attemptLogin(userName.value, password.value)\"><p></p>\n    Password: <input type = \"password\" #password (keyup.enter)=\"attemptLogin(userName.value, password.value)\">\n  &nbsp;&nbsp;&nbsp;\n  <button class =\"loginButton\" (click)=\"attemptLogin(userName.value, password.value)\">&nbsp;Login&nbsp;</button>\n  <p></p>\n  <a  (click) = hideMe(); [routerLink] = \"['/signUp']\">\n    <button class=\"signUpButton\"> Sign Up </button>\n    </a>\n  </div>\n  </div>"
+
+/***/ }),
+
+/***/ "./src/app/login-page/login-page.component.ts":
+/*!****************************************************!*\
+  !*** ./src/app/login-page/login-page.component.ts ***!
+  \****************************************************/
+/*! exports provided: LoginPageComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageComponent", function() { return LoginPageComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _show_login_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../show-login.service */ "./src/app/show-login.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var LoginPageComponent = /** @class */ (function () {
+    function LoginPageComponent(showLoginService) {
+        this.showLoginService = showLoginService;
+    }
+    LoginPageComponent.prototype.ngOnInit = function () {
+    };
+    LoginPageComponent.prototype.hideMe = function () {
+        this.showLoginService.changeShowStatus(false);
+    };
+    LoginPageComponent.prototype.attemptLogin = function (userName, password) {
+        if (confirm("This isn't live and will currently only show you the username and password \nHit ok to confirm or cancel to stop"))
+            alert("Okay, inputed \nUser Name: " + userName +
+                "\nPassword: " + password);
+    };
+    LoginPageComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-login-page',
+            template: __webpack_require__(/*! ./login-page.component.html */ "./src/app/login-page/login-page.component.html"),
+            styles: [__webpack_require__(/*! ./login-page.component.css */ "./src/app/login-page/login-page.component.css")]
+        }),
+        __metadata("design:paramtypes", [_show_login_service__WEBPACK_IMPORTED_MODULE_1__["ShowLoginService"]])
+    ], LoginPageComponent);
+    return LoginPageComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/login/login.component.css":
 /*!*******************************************!*\
   !*** ./src/app/login/login.component.css ***!
@@ -333,7 +414,7 @@ module.exports = ".loginBody{\r\n    position: relative;\r\n   margin:0px;\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class = 'loginBody'>\n  <div class= 'loginForm'>\n    <a  (click) = hideMe(); [routerLink] = \"['/signUp']\">\n    <button class=\"signUpButton\"> Sign Up </button>\n    </a>\n     User Name: <input #userName (keyup.enter)=\"attemptLogin(userName.value, password.value)\">\n    Password: <input type = \"password\" #password (keyup.enter)=\"attemptLogin(userName.value, password.value)\">\n  &nbsp;&nbsp;&nbsp;\n  <button class =\"loginButton\" (click)=\"attemptLogin(userName.value, password.value)\">&nbsp;Login&nbsp;</button>\n  </div>\n  \n  </div>"
+module.exports = "\n<div class = 'loginBody'>\n  <div class= 'loginForm'>\n    <a  (click) = hideMe(); [routerLink] = \"['/signUp']\">\n    <button class=\"signUpButton\"> Sign Up </button>\n    </a>\n     User Name: <input #userName (keyup.enter)=\"attemptLogin(userName.value, password.value)\">\n    Password: <input type = \"password\" #password (keyup.enter)=\"attemptLogin(userName.value, password.value)\">\n  &nbsp;&nbsp;&nbsp;\n  <button class =\"loginButton\" (click)=\"attemptLogin(userName.value, password.value)\">&nbsp;Login&nbsp;</button>\n  </div>\n  </div>"
 
 /***/ }),
 
@@ -349,6 +430,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _show_login_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../show-login.service */ "./src/app/show-login.service.ts");
+/* harmony import */ var _perform_login_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../perform-login.service */ "./src/app/perform-login.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -360,9 +442,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(showLoginService) {
+    function LoginComponent(showLoginService, peformLogin) {
         this.showLoginService = showLoginService;
+        this.peformLogin = peformLogin;
     }
     LoginComponent.prototype.ngOnInit = function () {
     };
@@ -370,9 +454,7 @@ var LoginComponent = /** @class */ (function () {
         this.showLoginService.changeShowStatus(false);
     };
     LoginComponent.prototype.attemptLogin = function (userName, password) {
-        if (confirm("This isn't live and will currently only show you the username and password \nHit ok to confirm or cancel to stop"))
-            alert("Okay, inputed \nUser Name: " + userName +
-                "\nPassword: " + password);
+        this.peformLogin.postLogin(userName, password);
     };
     LoginComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -380,7 +462,8 @@ var LoginComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
             styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")]
         }),
-        __metadata("design:paramtypes", [_show_login_service__WEBPACK_IMPORTED_MODULE_1__["ShowLoginService"]])
+        __metadata("design:paramtypes", [_show_login_service__WEBPACK_IMPORTED_MODULE_1__["ShowLoginService"],
+            _perform_login_service__WEBPACK_IMPORTED_MODULE_2__["PerformLoginService"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -716,6 +799,50 @@ var MochiFaceComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], MochiFaceComponent);
     return MochiFaceComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/perform-login.service.ts":
+/*!******************************************!*\
+  !*** ./src/app/perform-login.service.ts ***!
+  \******************************************/
+/*! exports provided: PerformLoginService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PerformLoginService", function() { return PerformLoginService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var PerformLoginService = /** @class */ (function () {
+    function PerformLoginService(http) {
+        this.http = http;
+        this.loginURL = "/loginProcessor";
+    }
+    PerformLoginService.prototype.postLogin = function (username, password) {
+        return this.http.post(this.loginURL, { username: username, password: password }, { observe: 'response' }).subscribe(function (res) { return console.log(res); });
+    };
+    PerformLoginService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], PerformLoginService);
+    return PerformLoginService;
 }());
 
 
