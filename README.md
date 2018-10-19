@@ -14,4 +14,4 @@ https://github.com/AndoryuRenoa/MochiJumpWeb-SinglePackageDeployment/blob/master
 
 With a setup like this you can run: "mvn clean install" just as normal
 
-Take a look at this: https://chariotsolutions.com/blog/post/angular-2-spring-boot-jwt-cors_part2/
+Having issues submitting authentication credentials to the spring server at the moment. Start with research on headers
