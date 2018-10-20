@@ -14,5 +14,4 @@ https://github.com/AndoryuRenoa/MochiJumpWeb-SinglePackageDeployment/blob/master
 
 With a setup like this you can run: "mvn clean install" just as normal
 
-Having issues submitting authentication credentials to the spring server at the moment, I think it is because I'm submitting JSON and Spring wants x-www-form-urlencode:
-https://stackoverflow.com/questions/42210128/configure-spring-security-for-angular-2
+Finally hace custom login working with angular. Now I just need to clean up the code and tie everything up together
