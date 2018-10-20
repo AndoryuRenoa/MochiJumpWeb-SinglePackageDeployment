@@ -836,10 +836,17 @@ var PerformLoginService = /** @class */ (function () {
         this.loginURL = "/loginProcessor";
     }
     PerformLoginService.prototype.postLogin = function (username, password) {
+        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
+            'Authorization': 'basic' + btoa(username + ':' + password),
+            'X-Requested-With': 'XMLHttpRequest'
+        });
+        var options = {
+            headers: headers
+        };
         console.log("Hello!!!");
         console.log({ username: username, password: password });
         console.log("{username: " + username + "password :" + password + "}");
-        return this.http.post(this.loginURL, { username: username, password: password }).subscribe(function (res) {
+        return this.http.post(this.loginURL, { username: username, password: password }, options).subscribe(function (res) {
             return console.log(JSON.stringify(res));
         });
     };
