@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ShowLoginService} from '../show-login.service';
 import {PerformLoginService} from '../perform-login.service';
+import {AuthenticateService} from'../authenticate.service';
 
 export interface LoginInfo {
   username : string;
@@ -15,11 +16,11 @@ export interface LoginInfo {
 })
 export class LoginComponent implements OnInit {
 
-  
+  credentials = {username: '', password: ''};
 
 
   constructor(private showLoginService: ShowLoginService,
-     private peformLogin : PerformLoginService ) { }
+     private peformLogin : PerformLoginService, private authenticate: AuthenticateService ) { }
 
   ngOnInit() {
     
@@ -30,7 +31,9 @@ export class LoginComponent implements OnInit {
   }
 
   attemptLogin(username : string, password: string){
-    this.peformLogin.postLogin(username, password);
+    this.authenticate.authenticate(this.credentials, ()=>{
+      
+    });
   }
   doNothing(){
 

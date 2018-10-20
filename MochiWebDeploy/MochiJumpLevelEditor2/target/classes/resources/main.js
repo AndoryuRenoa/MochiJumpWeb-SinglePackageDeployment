@@ -259,6 +259,62 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/authenticate.service.ts":
+/*!*****************************************!*\
+  !*** ./src/app/authenticate.service.ts ***!
+  \*****************************************/
+/*! exports provided: AuthenticateService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthenticateService", function() { return AuthenticateService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var AuthenticateService = /** @class */ (function () {
+    function AuthenticateService(http) {
+        this.http = http;
+        this.authenticated = false;
+    }
+    AuthenticateService.prototype.authenticate = function (credentials, callback) {
+        var _this = this;
+        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"](credentials ? {
+            authorization: 'Basic ' + btoa(credentials.username + ':' + credentials.password)
+        } : {});
+        this.http.get('user', { headers: headers }).subscribe(function (response) {
+            if (response['name']) {
+                _this.authenticated = true;
+            }
+            else {
+                _this.authenticated = false;
+            }
+            return callback && callback();
+        });
+    };
+    AuthenticateService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], AuthenticateService);
+    return AuthenticateService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/draw-level/draw-level.component.css":
 /*!*****************************************************!*\
   !*** ./src/app/draw-level/draw-level.component.css ***!
@@ -414,7 +470,7 @@ module.exports = ".loginBody{\r\n    position: relative;\r\n   margin:0px;\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class = 'loginBody'>\n  <div class= 'loginForm'>\n    <form #loginForm= \"ngForm\" (ngSubmit)=\"attemptLogin(username.value, password.value)\">\n      <a  (click) = hideMe(); [routerLink] = \"['/signUp']\">\n        <button class=\"signUpButton\" (keydown.enter) = \"doNothing()\"> Sign Up </button>\n        </a>\n    User Name: <input #username (keyup.enter)=\"attemptLogin(username.value, password.value)\" name=\"username\"\n    [(ngModel)] =\"usernameText\">\n    Password: <input  #password (keyup.enter)=\"attemptLogin(username.value, password.value)\" name=\"password\"\n    [(ngModel)] =\"passwordText\" type=\"password\">\n  &nbsp;&nbsp;&nbsp;\n  <button type = \"submit\" class =\"loginButton\" >&nbsp;Login&nbsp;</button>\n    </form>\n  </div>\n  </div>"
+module.exports = "\n<div class = 'loginBody'>\n  <div class= 'loginForm'>\n      <a  (click) = \"hideMe()\" [routerLink] = \"['/signUp']\">\n        <button class=\"signUpButton\" (keydown.enter) = \"doNothing()\"> Sign Up </button>\n        </a>\n    <form #loginForm= \"ngForm\" (ngSubmit)=\"attemptLogin(username.value, password.value)\">\n    User Name: <input #username (keyup.enter)=\"attemptLogin(username.value, password.value)\" name=\"username\"\n    [(ngModel)] =\"credentials.username\">\n    Password: <input  #password (keyup.enter)=\"attemptLogin(username.value, password.value)\" name=\"password\"\n    [(ngModel)] =\"credentials.password\" type=\"password\">\n  &nbsp;&nbsp;&nbsp;\n  <button type = \"submit\" class =\"loginButton\" >&nbsp;Login&nbsp;</button>\n    </form>\n  </div>\n  </div>"
 
 /***/ }),
 
@@ -431,6 +487,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _show_login_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../show-login.service */ "./src/app/show-login.service.ts");
 /* harmony import */ var _perform_login_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../perform-login.service */ "./src/app/perform-login.service.ts");
+/* harmony import */ var _authenticate_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../authenticate.service */ "./src/app/authenticate.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -443,10 +500,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(showLoginService, peformLogin) {
+    function LoginComponent(showLoginService, peformLogin, authenticate) {
         this.showLoginService = showLoginService;
         this.peformLogin = peformLogin;
+        this.authenticate = authenticate;
+        this.credentials = { username: '', password: '' };
     }
     LoginComponent.prototype.ngOnInit = function () {
     };
@@ -454,7 +514,8 @@ var LoginComponent = /** @class */ (function () {
         this.showLoginService.changeShowStatus(false);
     };
     LoginComponent.prototype.attemptLogin = function (username, password) {
-        this.peformLogin.postLogin(username, password);
+        this.authenticate.authenticate(this.credentials, function () {
+        });
     };
     LoginComponent.prototype.doNothing = function () {
     };
@@ -465,7 +526,7 @@ var LoginComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")]
         }),
         __metadata("design:paramtypes", [_show_login_service__WEBPACK_IMPORTED_MODULE_1__["ShowLoginService"],
-            _perform_login_service__WEBPACK_IMPORTED_MODULE_2__["PerformLoginService"]])
+            _perform_login_service__WEBPACK_IMPORTED_MODULE_2__["PerformLoginService"], _authenticate_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticateService"]])
     ], LoginComponent);
     return LoginComponent;
 }());

@@ -18,11 +18,13 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-        .csrf().disable()
+        .httpBasic()
+        .and()
         .authorizeRequests().antMatchers("/", "/mainmenu", "/runtime**",
         		"/polyfills**", "/favicon.ico", "/vendor**", "/styles**", 
         		"/main**", "/login", "/loginProcessor").permitAll()
-        .anyRequest().authenticated()
+        .anyRequest().authenticated();
+        /*
         .and()
         .formLogin()
         .loginPage("/login")
@@ -31,31 +33,15 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
         .defaultSuccessUrl("/mainmenu")
         .failureUrl("/login")
         .and()
-        .httpBasic()
-        .and()
-        .logout();
         
+        .logout();
+        */
     }
     
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.debug(true);
     }
-    
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("user")
-                    .password("password")
-                    .roles("USER")
-            .and()
-                .withUser("manager")
-                    .password("password")
-                    .credentialsExpired(true)
-                    .accountExpired(true)
-                    .accountLocked(true)
-                    .authorities("WRITE_PRIVILEGES", "READ_PRIVILEGES")
-                    .roles("MANAGER");
-    }
+   
     
 }
