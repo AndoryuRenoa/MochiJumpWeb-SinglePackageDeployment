@@ -833,20 +833,20 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var PerformLoginService = /** @class */ (function () {
     function PerformLoginService(http) {
         this.http = http;
-        this.loginURL = "/loginProcessor";
+        this.loginURL = "/login";
     }
     PerformLoginService.prototype.postLogin = function (username, password) {
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
-            'Authorization': 'basic' + btoa(username + ':' + password),
-            'X-Requested-With': 'XMLHttpRequest'
+            'Authorization': 'basic' + { username: username, password: password },
+            'X-Requested-With': 'application/x-www-form-urlencoded'
         });
         var options = {
             headers: headers
         };
         console.log("Hello!!!");
         console.log({ username: username, password: password });
-        console.log("{username: " + username + "password :" + password + "}");
-        return this.http.post(this.loginURL, { username: username, password: password }, options).subscribe(function (res) {
+        console.log(this.loginURL, { username: username, password: password }, options);
+        return this.http.post(this.loginURL, options).subscribe(function (res) {
             return console.log(JSON.stringify(res));
         });
     };
