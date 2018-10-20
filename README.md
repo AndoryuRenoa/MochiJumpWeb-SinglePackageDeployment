@@ -14,4 +14,4 @@ https://github.com/AndoryuRenoa/MochiJumpWeb-SinglePackageDeployment/blob/master
 
 With a setup like this you can run: "mvn clean install" just as normal
 
-Finally hace custom login working with angular. Now I just need to clean up the code and tie everything up together
+Finally hace custom login working with angular. Now I just need to clean up the code, create a create new user service, and then tie everything up together including the loose ends, and finally make the site https!
