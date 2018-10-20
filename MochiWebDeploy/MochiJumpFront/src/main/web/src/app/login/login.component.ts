@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {ShowLoginService} from '../show-login.service';
 import {PerformLoginService} from '../perform-login.service';
 
+export interface LoginInfo {
+  username : string;
+  password : string;
+
+}
 
 @Component({
   selector: 'app-login',
@@ -9,6 +14,8 @@ import {PerformLoginService} from '../perform-login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  
 
 
   constructor(private showLoginService: ShowLoginService,
@@ -22,8 +29,11 @@ export class LoginComponent implements OnInit {
     this.showLoginService.changeShowStatus(false);
   }
 
-  attemptLogin(userName : string, password:string){
-    this.peformLogin.postLogin(userName, password);
+  attemptLogin(username : string, password: string){
+    this.peformLogin.postLogin(username, password);
+  }
+  doNothing(){
+
   }
 
 }

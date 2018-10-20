@@ -414,7 +414,7 @@ module.exports = ".loginBody{\r\n    position: relative;\r\n   margin:0px;\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class = 'loginBody'>\n  <div class= 'loginForm'>\n    <a  (click) = hideMe(); [routerLink] = \"['/signUp']\">\n    <button class=\"signUpButton\"> Sign Up </button>\n    </a>\n     User Name: <input #userName (keyup.enter)=\"attemptLogin(userName.value, password.value)\">\n    Password: <input type = \"password\" #password (keyup.enter)=\"attemptLogin(userName.value, password.value)\">\n  &nbsp;&nbsp;&nbsp;\n  <button class =\"loginButton\" (click)=\"attemptLogin(userName.value, password.value)\">&nbsp;Login&nbsp;</button>\n  </div>\n  </div>"
+module.exports = "\n<div class = 'loginBody'>\n  <div class= 'loginForm'>\n    <form #loginForm= \"ngForm\" (ngSubmit)=\"attemptLogin(username.value, password.value)\">\n      <a  (click) = hideMe(); [routerLink] = \"['/signUp']\">\n        <button class=\"signUpButton\" (keydown.enter) = \"doNothing()\"> Sign Up </button>\n        </a>\n    User Name: <input #username (keyup.enter)=\"attemptLogin(username.value, password.value)\" name=\"username\"\n    [(ngModel)] =\"usernameText\">\n    Password: <input  #password (keyup.enter)=\"attemptLogin(username.value, password.value)\" name=\"password\"\n    [(ngModel)] =\"passwordText\" type=\"password\">\n  &nbsp;&nbsp;&nbsp;\n  <button type = \"submit\" class =\"loginButton\" >&nbsp;Login&nbsp;</button>\n    </form>\n  </div>\n  </div>"
 
 /***/ }),
 
@@ -453,8 +453,10 @@ var LoginComponent = /** @class */ (function () {
     LoginComponent.prototype.hideMe = function () {
         this.showLoginService.changeShowStatus(false);
     };
-    LoginComponent.prototype.attemptLogin = function (userName, password) {
-        this.peformLogin.postLogin(userName, password);
+    LoginComponent.prototype.attemptLogin = function (username, password) {
+        this.peformLogin.postLogin(username, password);
+    };
+    LoginComponent.prototype.doNothing = function () {
     };
     LoginComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -831,10 +833,15 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var PerformLoginService = /** @class */ (function () {
     function PerformLoginService(http) {
         this.http = http;
-        this.loginURL = "/login";
+        this.loginURL = "/loginProcessor";
     }
     PerformLoginService.prototype.postLogin = function (username, password) {
-        return this.http.post(this.loginURL, { username: username, password: password }, { observe: 'response' }).subscribe(function (res) { return console.log(res); });
+        console.log("Hello!!!");
+        console.log({ username: username, password: password });
+        console.log("{username: " + username + "password :" + password + "}");
+        return this.http.post(this.loginURL, { username: username, password: password }).subscribe(function (res) {
+            return console.log(JSON.stringify(res));
+        });
     };
     PerformLoginService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({

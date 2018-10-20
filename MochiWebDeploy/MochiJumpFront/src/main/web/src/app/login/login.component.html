@@ -1,12 +1,16 @@
 
 <div class = 'loginBody'>
   <div class= 'loginForm'>
-    <a  (click) = hideMe(); [routerLink] = "['/signUp']">
-    <button class="signUpButton"> Sign Up </button>
-    </a>
-     User Name: <input #userName (keyup.enter)="attemptLogin(userName.value, password.value)">
-    Password: <input type = "password" #password (keyup.enter)="attemptLogin(userName.value, password.value)">
+    <form #loginForm= "ngForm" (ngSubmit)="attemptLogin(username.value, password.value)">
+      <a  (click) = hideMe(); [routerLink] = "['/signUp']">
+        <button class="signUpButton" (keydown.enter) = "doNothing()"> Sign Up </button>
+        </a>
+    User Name: <input #username (keyup.enter)="attemptLogin(username.value, password.value)" name="username"
+    [(ngModel)] ="usernameText">
+    Password: <input  #password (keyup.enter)="attemptLogin(username.value, password.value)" name="password"
+    [(ngModel)] ="passwordText" type="password">
   &nbsp;&nbsp;&nbsp;
-  <button class ="loginButton" (click)="attemptLogin(userName.value, password.value)">&nbsp;Login&nbsp;</button>
+  <button type = "submit" class ="loginButton" >&nbsp;Login&nbsp;</button>
+    </form>
   </div>
   </div>
