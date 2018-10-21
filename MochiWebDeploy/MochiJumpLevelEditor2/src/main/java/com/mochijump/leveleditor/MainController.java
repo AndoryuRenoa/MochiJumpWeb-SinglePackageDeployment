@@ -175,7 +175,7 @@ public class MainController {
 		RestTemplate rest = new RestTemplate();
 		HttpStatus status;
 		HttpEntity <String> requestEntity = new HttpEntity (message, headers);
-		ResponseEntity<String> responseEntity = rest.exchange("http://mochijumpemailer-env.evyk8k3wmq.us-east-2.elasticbeanstalk.com/email/message", 
+		ResponseEntity<String> responseEntity = rest.exchange("http://mochijumpemailer-env.evyk8k3wmq.us-east-2.elasticbeanstalk.com/email/activateNewAccount", 
 				HttpMethod.POST, requestEntity, String.class);
 		status = responseEntity.getStatusCode();
 		
