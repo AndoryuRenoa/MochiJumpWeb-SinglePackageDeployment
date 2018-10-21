@@ -45,12 +45,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
         .logout();
         */
     }
-    
+/*    
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.debug(true);
     }
-    
+  */  
     @Override
     protected void configure (AuthenticationManagerBuilder auth) {
     	auth.authenticationProvider(authenticationProvider());

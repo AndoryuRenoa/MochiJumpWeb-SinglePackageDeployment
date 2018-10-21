@@ -178,15 +178,20 @@ public class MainController {
 		ResponseEntity<String> responseEntity = rest.exchange("http://mochijumpemailer-env.evyk8k3wmq.us-east-2.elasticbeanstalk.com/email/message", 
 				HttpMethod.POST, requestEntity, String.class);
 		status = responseEntity.getStatusCode();
-		return responseEntity.getBody();
+		
+		
+		
+		return responseEntity.getBody() + newUser.getIsAccountNonLocked();
+		
 		
 	}
 	
 	@RequestMapping (path="/activate")
-	public @ResponseBody String activateUser (@RequestBody String username, long userKey) {
+	public @ResponseBody String activateUser (@RequestParam String username, @RequestParam  long userKey) {
 		User activateMe = userRepository.findByUserName(username);
 		if (userKey == activateMe.getKeyNum()) {
 			activateMe.setIsAccountNonLocked(true);
+			userRepository.save(activateMe);
 			return "success";
 		} else {
 			return "failure";

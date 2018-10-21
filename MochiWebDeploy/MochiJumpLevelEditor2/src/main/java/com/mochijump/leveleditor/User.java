@@ -19,7 +19,7 @@ public class User {
 	
 	private String password;
 	
-	private Boolean isAccountNonLocked;
+	private boolean isAccountNonLocked;
 	
 	private Long keyNum;
 	
@@ -64,11 +64,11 @@ public class User {
 		this.userFirstName = userFirstName;
 	}
 	
-	public Boolean getIsAccountNonLocked () {
+	public boolean getIsAccountNonLocked () {
 		return isAccountNonLocked;
 	}
 	
-	public void setIsAccountNonLocked (Boolean isAccountNonLocked) {
+	public void setIsAccountNonLocked (boolean isAccountNonLocked) {
 		this.isAccountNonLocked = isAccountNonLocked;
 	}
 	
