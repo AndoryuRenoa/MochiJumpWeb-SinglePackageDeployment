@@ -3,6 +3,7 @@ import {ShowLoginService} from '../show-login.service';
 import {ShowLogoutService} from '../show-logout.service';
 import { UserInfoService } from '../user-info.service';
 import { Router } from '@angular/router';
+import {SignUpServiceService} from '../sign-up-service.service'
 
 @Component({
   selector: 'app-sign-up',
@@ -11,13 +12,22 @@ import { Router } from '@angular/router';
 })
 export class SignUpComponent implements OnInit, OnDestroy{
 
+  newUserTemplate = {userFirstName: '', userName: '', emailAddress:'', password: ''};
+
   signupComplete : boolean = false;
 
   constructor(private showLoginService: ShowLoginService, private showLogout: ShowLogoutService, private router: Router,
-  private userInfo: UserInfoService) { }
+  private userInfo: UserInfoService, private signUp: SignUpServiceService) { }
 
   ngOnInit() {
    
+  }
+  signup(){
+    this.signUp.attemptSignUP(this.newUserTemplate, ()=>{
+      console.log("signup attempted");
+
+    });
+
   }
 
   saveName(userName :string){

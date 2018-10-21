@@ -488,6 +488,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _show_login_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../show-login.service */ "./src/app/show-login.service.ts");
 /* harmony import */ var _perform_login_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../perform-login.service */ "./src/app/perform-login.service.ts");
 /* harmony import */ var _authenticate_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../authenticate.service */ "./src/app/authenticate.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -501,11 +502,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(showLoginService, peformLogin, authenticate) {
+    function LoginComponent(showLoginService, peformLogin, authenticate, router) {
         this.showLoginService = showLoginService;
         this.peformLogin = peformLogin;
         this.authenticate = authenticate;
+        this.router = router;
         this.credentials = { username: '', password: '' };
     }
     LoginComponent.prototype.ngOnInit = function () {
@@ -514,8 +517,11 @@ var LoginComponent = /** @class */ (function () {
         this.showLoginService.changeShowStatus(false);
     };
     LoginComponent.prototype.attemptLogin = function (username, password) {
+        var _this = this;
         this.authenticate.authenticate(this.credentials, function () {
+            _this.router.navigateByUrl('/');
         });
+        return false;
     };
     LoginComponent.prototype.doNothing = function () {
     };
@@ -526,7 +532,8 @@ var LoginComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")]
         }),
         __metadata("design:paramtypes", [_show_login_service__WEBPACK_IMPORTED_MODULE_1__["ShowLoginService"],
-            _perform_login_service__WEBPACK_IMPORTED_MODULE_2__["PerformLoginService"], _authenticate_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticateService"]])
+            _perform_login_service__WEBPACK_IMPORTED_MODULE_2__["PerformLoginService"], _authenticate_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticateService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -1016,6 +1023,53 @@ var ShowLogoutService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/sign-up-service.service.ts":
+/*!********************************************!*\
+  !*** ./src/app/sign-up-service.service.ts ***!
+  \********************************************/
+/*! exports provided: SignUpServiceService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignUpServiceService", function() { return SignUpServiceService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var SignUpServiceService = /** @class */ (function () {
+    function SignUpServiceService(http) {
+        this.http = http;
+        this.signupURL = "/test/newUserCreation";
+    }
+    SignUpServiceService.prototype.attemptSignUP = function (userTemplate, callback) {
+        this.http.post(this.signupURL, userTemplate).subscribe(function (res) {
+            return console.log(JSON.stringify(res));
+        });
+        return callback && callback();
+    };
+    SignUpServiceService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], SignUpServiceService);
+    return SignUpServiceService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/sign-up/sign-up-complete/sign-up-complete.component.css":
 /*!*************************************************************************!*\
   !*** ./src/app/sign-up/sign-up-complete/sign-up-complete.component.css ***!
@@ -1097,7 +1151,7 @@ module.exports = ".thisBody{\r\n    padding-left: 10px;\r\n  }"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class = thisBody>\n  <a [routerLink] = \"['/']\">\n  <h2> Click here to go back </h2>\n  </a>\n  <p>\n  This will be the signup page. It is currently not connected to the backend hence will not work.\n  </p>\n  <p> for now this field and button will simulate signing up </p>\n  Enter your name here:&nbsp;&nbsp;\n  <input #name (keyup.enter)= \"saveName(name.value)\"> &nbsp;\n  <button (click)=\"saveName(name.value)\"> Sign me Up! </button>\n  </div>"
+module.exports = "<div class = thisBody>\n  <a [routerLink] = \"['/']\">\n  <h2> [Click here to go back to main menu] </h2>\n  </a>\n  <p>\n  This will be the signup page. Currently being tested\n  \n  <form #loginForm= \"ngForm\" (ngSubmit)=\"signup()\">\n  Enter your first name here:&nbsp;&nbsp;<p></p>\n  <input #firstName (keyup.enter)= \"signup()\" [(ngModel)] =\"newUserTemplate.userFirstName\" \n  name =\"userFirstName\" type=\"text\"><p></p>\n  Enter your user name here:&nbsp;&nbsp;<p></p>\n  <input #userName (keyup.enter)= \"signup()\" [(ngModel)] =\"newUserTemplate.userName\"\n  name =\"userName\"type=\"text\"><p></p>\n  Enter your Email here:&nbsp;&nbsp;<p></p>\n  <input #name (keyup.enter)= \"signup()\" [(ngModel)] =\"newUserTemplate.emailAddress\"\n  name =\"emailAddress\"type=\"text\"><p></p>\n  Enter your password here:&nbsp;&nbsp;<p></p>\n  <input #name (keyup.enter)= \"signup()\" [(ngModel)] =\"newUserTemplate.password\"\n  name =\"password\"type=\"password\"><p></p>\n  &nbsp;\n  <button type=\"submit\" (click)=\"signup()\"> Sign me Up! </button>\n  </form>\n  </div>"
 
 /***/ }),
 
@@ -1116,6 +1170,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _show_logout_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../show-logout.service */ "./src/app/show-logout.service.ts");
 /* harmony import */ var _user_info_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user-info.service */ "./src/app/user-info.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _sign_up_service_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../sign-up-service.service */ "./src/app/sign-up-service.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1130,15 +1185,23 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var SignUpComponent = /** @class */ (function () {
-    function SignUpComponent(showLoginService, showLogout, router, userInfo) {
+    function SignUpComponent(showLoginService, showLogout, router, userInfo, signUp) {
         this.showLoginService = showLoginService;
         this.showLogout = showLogout;
         this.router = router;
         this.userInfo = userInfo;
+        this.signUp = signUp;
+        this.newUserTemplate = { userFirstName: '', userName: '', emailAddress: '', password: '' };
         this.signupComplete = false;
     }
     SignUpComponent.prototype.ngOnInit = function () {
+    };
+    SignUpComponent.prototype.signup = function () {
+        this.signUp.attemptSignUP(this.newUserTemplate, function () {
+            console.log("signup attempted");
+        });
     };
     SignUpComponent.prototype.saveName = function (userName) {
         this.userInfo.setUserName(userName);
@@ -1165,7 +1228,7 @@ var SignUpComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./sign-up.component.css */ "./src/app/sign-up/sign-up.component.css")]
         }),
         __metadata("design:paramtypes", [_show_login_service__WEBPACK_IMPORTED_MODULE_1__["ShowLoginService"], _show_logout_service__WEBPACK_IMPORTED_MODULE_2__["ShowLogoutService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
-            _user_info_service__WEBPACK_IMPORTED_MODULE_3__["UserInfoService"]])
+            _user_info_service__WEBPACK_IMPORTED_MODULE_3__["UserInfoService"], _sign_up_service_service__WEBPACK_IMPORTED_MODULE_5__["SignUpServiceService"]])
     ], SignUpComponent);
     return SignUpComponent;
 }());

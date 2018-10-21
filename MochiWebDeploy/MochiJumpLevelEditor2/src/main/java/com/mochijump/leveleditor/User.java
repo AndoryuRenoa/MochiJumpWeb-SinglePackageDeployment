@@ -18,6 +18,19 @@ public class User {
 	private String emailAddress;
 	
 	private String password;
+	
+	private Boolean isAccountNonLocked;
+	
+	private Long keyNum;
+	
+	public Integer getId () {
+		return id;
+	}
+	
+
+	public void setId (Integer id) {
+		this.id = id;
+	}
 
 	public String getUserName() {
 		return userName;
@@ -51,5 +64,20 @@ public class User {
 		this.userFirstName = userFirstName;
 	}
 	
+	public Boolean getIsAccountNonLocked () {
+		return isAccountNonLocked;
+	}
+	
+	public void setIsAccountNonLocked (Boolean isAccountNonLocked) {
+		this.isAccountNonLocked = isAccountNonLocked;
+	}
+	
+	public Long getKeyNum () {
+		return this.keyNum;
+	}
+	
+	public void setKeyNum (Long keyNum) {
+		this.keyNum = keyNum;
+	}
 	
 }

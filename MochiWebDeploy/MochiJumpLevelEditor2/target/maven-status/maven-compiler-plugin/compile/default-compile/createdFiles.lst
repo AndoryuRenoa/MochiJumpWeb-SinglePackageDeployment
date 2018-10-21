@@ -4,10 +4,12 @@ com\mochijump\leveleditor\User.class
 com\mochijump\leveleditor\MainController.class
 com\mochijump\leveleditor\UserPrincipal.class
 com\mochijump\leveleditor\AuthSuccessHandler.class
+com\mochijump\leveleditor\NewUserTemplate.class
 com\mochijump\leveleditor\TinyMCEExample.class
 com\mochijump\leveleditor\CustomUserDetailsService.class
 com\mochijump\leveleditor\Application.class
 com\mochijump\leveleditor\BasicAuthorizeConfig.class
 com\mochijump\leveleditor\UserRepository.class
 com\mochijump\leveleditor\LauchPage.class
+com\mochijump\leveleditor\Message.class
 com\mochijump\leveleditor\Level.class

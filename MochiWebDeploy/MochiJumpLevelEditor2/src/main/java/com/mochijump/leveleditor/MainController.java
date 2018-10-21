@@ -7,6 +7,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.security.Principal;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -150,5 +151,46 @@ public class MainController {
 	
 	}
 	
+	
+	// this may need to be changed to string and then mapped to NewUserTemplate
+	@PostMapping (path="/newUserCreation")
+	public @ResponseBody String makeNewUser (@RequestBody NewUserTemplate newUserT) {
+		Random rand = new Random();
+		User newUser = new User();
+		newUser.setEmailAddress(newUserT.getEmailAddress());
+		newUser.setIsAccountNonLocked(false);
+		newUser.setKeyNum(rand.nextLong());
+		newUser.setPassword(newUserT.getPassword());
+		newUser.setUserName(newUserT.getUserName());
+		newUser.setUserFirstName(newUserT.getUserFirstName());
+		userRepository.save(newUser);
+		
+		Message message = new Message();
+		message.setEmail(newUser.getEmailAddress());
+		message.setSubject("Please Activate your new account");
+		message.setMessageBody("Please click the following link to activate your new account :"+
+		"localhost:8080/test/activate?username="+newUser.getUserName()+"&userKey="+newUser.getKeyNum());
+		
+		HttpHeaders headers = new HttpHeaders();
+		RestTemplate rest = new RestTemplate();
+		HttpStatus status;
+		HttpEntity <String> requestEntity = new HttpEntity (message, headers);
+		ResponseEntity<String> responseEntity = rest.exchange("http://mochijumpemailer-env.evyk8k3wmq.us-east-2.elasticbeanstalk.com/email/message", 
+				HttpMethod.POST, requestEntity, String.class);
+		status = responseEntity.getStatusCode();
+		return responseEntity.getBody();
+		
+	}
+	
+	@RequestMapping (path="/activate")
+	public @ResponseBody String activateUser (@RequestBody String username, long userKey) {
+		User activateMe = userRepository.findByUserName(username);
+		if (userKey == activateMe.getKeyNum()) {
+			activateMe.setIsAccountNonLocked(true);
+			return "success";
+		} else {
+			return "failure";
+		}
+	}
 	
 }

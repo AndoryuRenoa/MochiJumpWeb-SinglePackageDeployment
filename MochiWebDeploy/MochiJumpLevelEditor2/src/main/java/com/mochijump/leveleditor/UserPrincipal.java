@@ -19,6 +19,7 @@ public class UserPrincipal implements UserDetails {
 
 	@Override
 	public String getPassword() {
+		// this needs to be implemented in the entity class not here okay to use now for testing
 		String encodedPass = encoder.encode(user.getPassword());
 		return encodedPass;
 	}
@@ -35,7 +36,11 @@ public class UserPrincipal implements UserDetails {
 
 	@Override
 	public boolean isAccountNonLocked() {
-		return true;
+		if (user.getIsAccountNonLocked()) {
+			return true;
+		}else {
+		return false;
+		}
 	}
 
 	@Override
