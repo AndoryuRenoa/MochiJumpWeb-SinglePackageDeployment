@@ -8,10 +8,10 @@ This is a spring-boot app that serves up an angular front end.
 
 1. Secure login [Done]
 
-2. Fix Account Acctivation Lock
+2. Fix Account Activation Lock
 
 3. Create new mailer api for sending emails for account activation
 
-4. create form validators
+4. Create form validators
 
-5. set up https for mochijump.com
+5. Set up https for mochijump.com
