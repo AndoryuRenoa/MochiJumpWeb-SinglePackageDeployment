@@ -13,5 +13,12 @@ https://github.com/AndoryuRenoa/MochiJumpWeb-SinglePackageDeployment/tree/master
 https://github.com/AndoryuRenoa/MochiJumpWeb-SinglePackageDeployment/blob/master/MochiWebDeploy/MochiJumpLevelEditor2/pom.xml
 
 With a setup like this you can run: "mvn clean install" just as normal
+## To Do Before This Goes Live
 
-Finally hace custom login working with angular. Now I just need to clean up the code, create a create new user service, and then tie everything up together including the loose ends, and finally make the site https!
+1. Fix Account Acctivation Lock
+
+2. Create new mailer api for sending emails for account activation
+
+3. create form validators
+
+4. set up https for mochijump.com
