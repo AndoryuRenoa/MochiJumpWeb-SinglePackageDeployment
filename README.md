@@ -19,3 +19,5 @@ This is a spring-boot app that serves up an angular front end.
 ## Notes
 
 Go ahead and comment out the logging activity for security for now, can always check browser console for unexpected 401
+
+I've got the SSL certificate. Need to deploy it in the Spring app
