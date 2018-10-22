@@ -8,16 +8,14 @@ This is a spring-boot app that serves up an angular front end.
 
 1. Secure login [Done]
 
-2. Fix Account Activation Lock
+2. Fix Account Activation Lock [Done]
 
-3. Create new mailer api for sending emails for account activation
+3. Create new mailer api for sending emails for account activation [Done]
 
 4. Create form validators
 
 5. Set up https for mochijump.com
 
 ## Notes
-
-Go ahead and comment out the logging activity for security for now, can always check browser console for unexpected 401
 
 I've got the SSL certificate. Need to deploy it in the Spring app
