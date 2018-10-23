@@ -30,12 +30,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
         .authorizeRequests().antMatchers("/", "/mainmenu", "/runtime**",
         		"/polyfills**", "/favicon.ico", "/vendor**", "/styles**", 
         		"/main**", "/login", "/loginProcessor", "/test/activate**",
-        		"/test/newUserCreation**", "/error").permitAll()
-        .anyRequest().authenticated();
-        /*
+        		"/test/newUserCreation**", "/error", "/images/**").permitAll()
+        .antMatchers("/levelEditor").authenticated()
+        .anyRequest().authenticated()
         .and()
         .formLogin()
-        .loginPage("/login")
+        .loginPage("/login");
+        /*
         .usernameParameter("username")
         .passwordParameter("password")
         .defaultSuccessUrl("/mainmenu")

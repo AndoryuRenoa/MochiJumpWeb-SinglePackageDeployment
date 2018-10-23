@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ShowLoginService} from '../show-login.service';
+import {PerformLoginService} from '../perform-login.service';
+import {AuthenticateService} from'../authenticate.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login-page',
@@ -8,8 +12,12 @@ import {ShowLoginService} from '../show-login.service';
 })
 export class LoginPageComponent implements OnInit {
 
-  
-  constructor(private showLoginService: ShowLoginService) { }
+  credentials = {username: '', password: ''};
+
+
+  constructor(private showLoginService: ShowLoginService,
+     private peformLogin : PerformLoginService, private authenticate: AuthenticateService,
+     private router : Router ) { }
 
   ngOnInit() {
     
@@ -19,10 +27,15 @@ export class LoginPageComponent implements OnInit {
     this.showLoginService.changeShowStatus(false);
   }
 
-  attemptLogin(userName : String, password:String){
-    if(confirm("This isn't live and will currently only show you the username and password \nHit ok to confirm or cancel to stop"))
-    alert("Okay, inputed \nUser Name: "+ userName+
-    "\nPassword: "+ password)
+  attemptLogin(username : string, password: string){
+    this.authenticate.authenticate(this.credentials, ()=>{
+      this.router.navigateByUrl('/');
+        });
+        return false;
+  }
+
+  doNothing(){
+
   }
 
 }

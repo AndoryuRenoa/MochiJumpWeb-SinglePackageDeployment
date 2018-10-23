@@ -17,6 +17,7 @@ import { AboutButtonComponent } from './main-menu/about-button/about-button.comp
 import { LevelEditButtonComponent } from './main-menu/level-edit-button/level-edit-button.component';
 import { SignUpCompleteComponent } from './sign-up/sign-up-complete/sign-up-complete.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { ContactButtonComponent } from './main-menu/contact-button/contact-button.component';
 
 
 const appRoutes: Routes = [
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
   {path: 'signUp', component: SignUpComponent},
   {path: 'signUpComplete', component:SignUpCompleteComponent},
   {path: 'login', component: LoginPageComponent},
+  {path: 'levelEditor', component: DrawLevelComponent},
   {path: '',   redirectTo: '/mainmenu', pathMatch: 'full' }
 ];
 
@@ -42,7 +44,8 @@ const appRoutes: Routes = [
     AboutButtonComponent,
     LevelEditButtonComponent,
     SignUpCompleteComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    ContactButtonComponent
   ],
   imports: [
     BrowserModule,

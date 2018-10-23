@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".aboutBody{\r\n    background-color: lightblue;\r\n  }"
 
 /***/ }),
 
@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  about works!\n</p>\n"
+module.exports = "<div class=\"aboutBody\">\n    <h2> you are currently viewing this on a dev server! </h2>\n  <p>This a portfolio project still in development</p>\n    <p> MochiJump is a personal project designed by Andrew Lenoir.</p>\n    <p> It is broken into multiple parts </p>\n    <p></p>\n    <p> The game, MochiJump is a stand alone Desktop App that functions as a 2D 8 bit style platformer game. It is written in Java</p>\n    <p> The web app, MochiJumpLevelEditor has a seperate front and back end</p> \n    <p> The web front end is an Angular web app to be hosted on Google Cloud's App Engine </p>\n    <p>The backend is written in Java and uses the Spring Framework along with a MySQL server. <p>\n    <p>The back end is further broken broken into microservices making use of both Google Cloud's Compute Engine as well as AWS</p>\n    <p style= \"padding-left: 30pt\">\tCheck out the Desktop App source code\n      <a href=\"https://github.com/AndoryuRenoa/MochiJump\">here</a>\n      </p>\n    <p style= \"padding-left: 30pt\">Direct link to Download MochiJump Desktop App \n      <a href =\"https://github.com/AndoryuRenoa/MochiJump/blob/master/dist/MochiJump.jar?raw=true\">here</a>\n      </p>\n    <p style= \"padding-left: 30pt\">\tCheck out the Web App source code\n      <a href=\"https://github.com/AndoryuRenoa/MochiJumpLevelEditor\">here</a>\n      </p>\n  \n  <a [routerLink]=\"['/']\">\n  <button> Go Back </button>\n  </a>\n  </div>"
 
 /***/ }),
 
@@ -93,7 +93,7 @@ var AboutComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".tempMessage{\r\n    text-align: center;\r\n}"
 
 /***/ }),
 
@@ -104,7 +104,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<body>\n  <div *ngIf =\"showAppLogin;\"><app-login></app-login></div>\n  <div *ngIf =\"showAppLogout;\"><app-logout></app-logout> </div>\n  <p>This text comes from app.component. Below is the router:</p>\n  <router-outlet></router-outlet>\n  <nav>\n  </nav>\n  \n  </body>"
+module.exports = "<body>\n  <div *ngIf =\"showAppLogin;\"><app-login></app-login></div>\n  <div *ngIf =\"showAppLogout;\"><app-logout></app-logout> </div>\n  <div class = 'tempMessage'>\n  <p>This is a stable development build. This is still under Construction</p>\n</div>\n  <router-outlet></router-outlet>\n  <nav>\n  </nav>\n  \n  </body>"
 
 /***/ }),
 
@@ -189,12 +189,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_menu_level_edit_button_level_edit_button_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./main-menu/level-edit-button/level-edit-button.component */ "./src/app/main-menu/level-edit-button/level-edit-button.component.ts");
 /* harmony import */ var _sign_up_sign_up_complete_sign_up_complete_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./sign-up/sign-up-complete/sign-up-complete.component */ "./src/app/sign-up/sign-up-complete/sign-up-complete.component.ts");
 /* harmony import */ var _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./login-page/login-page.component */ "./src/app/login-page/login-page.component.ts");
+/* harmony import */ var _main_menu_contact_button_contact_button_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./main-menu/contact-button/contact-button.component */ "./src/app/main-menu/contact-button/contact-button.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -220,6 +222,7 @@ var appRoutes = [
     { path: 'signUp', component: _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_13__["SignUpComponent"] },
     { path: 'signUpComplete', component: _sign_up_sign_up_complete_sign_up_complete_component__WEBPACK_IMPORTED_MODULE_16__["SignUpCompleteComponent"] },
     { path: 'login', component: _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_17__["LoginPageComponent"] },
+    { path: 'levelEditor', component: _draw_level_draw_level_component__WEBPACK_IMPORTED_MODULE_8__["DrawLevelComponent"] },
     { path: '', redirectTo: '/mainmenu', pathMatch: 'full' }
 ];
 var AppModule = /** @class */ (function () {
@@ -239,7 +242,8 @@ var AppModule = /** @class */ (function () {
                 _main_menu_about_button_about_button_component__WEBPACK_IMPORTED_MODULE_14__["AboutButtonComponent"],
                 _main_menu_level_edit_button_level_edit_button_component__WEBPACK_IMPORTED_MODULE_15__["LevelEditButtonComponent"],
                 _sign_up_sign_up_complete_sign_up_complete_component__WEBPACK_IMPORTED_MODULE_16__["SignUpCompleteComponent"],
-                _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_17__["LoginPageComponent"]
+                _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_17__["LoginPageComponent"],
+                _main_menu_contact_button_contact_button_component__WEBPACK_IMPORTED_MODULE_18__["ContactButtonComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -333,7 +337,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  draw-level works!\n</p>\n"
+module.exports = "<p> The link below will take you to an old working prototype for the level editor for Mochi Jump</p>\n\n<a href = \"/test\"> \n<h2> Old Working Prototype for Mochi Jump Level Editor</h2>\n</a>\n"
 
 /***/ }),
 
@@ -396,7 +400,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class = 'loginBody'>\n  <div class= 'loginForm'>\n    \n    User Name: <input #userName (keyup.enter)=\"attemptLogin(userName.value, password.value)\"><p></p>\n    Password: <input type = \"password\" #password (keyup.enter)=\"attemptLogin(userName.value, password.value)\">\n  &nbsp;&nbsp;&nbsp;\n  <button class =\"loginButton\" (click)=\"attemptLogin(userName.value, password.value)\">&nbsp;Login&nbsp;</button>\n  <p></p>\n  <a  (click) = hideMe(); [routerLink] = \"['/signUp']\">\n    <button class=\"signUpButton\"> Sign Up </button>\n    </a>\n  </div>\n  </div>"
+module.exports = "<div class = 'loginBody'>\n\n  <h2> You have been brought here as it is neccessary to login to access further content</h2>\n  <form #loginForm= \"ngForm\" (ngSubmit)=\"attemptLogin(username.value, password.value)\">\n    \n    User Name: <input #username (keyup.enter)=\"attemptLogin(username.value, password.value)\" name=\"username\"\n    [(ngModel)] =\"credentials.username\"><p></p>\n    Password: <input  #password (keyup.enter)=\"attemptLogin(username.value, password.value)\" name=\"password\"\n    [(ngModel)] =\"credentials.password\" type=\"password\">\n  &nbsp;&nbsp;&nbsp;\n  <button type = \"submit\" class =\"loginButton\">&nbsp;Login&nbsp;</button>\n  </form>\n  <p></p>\n  <a  (click) = hideMe(); [routerLink] = \"['/signUp']\">\n    <button class=\"signUpButton\"> Sign Up </button>\n    </a>\n  </div>"
 
 /***/ }),
 
@@ -412,6 +416,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageComponent", function() { return LoginPageComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _show_login_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../show-login.service */ "./src/app/show-login.service.ts");
+/* harmony import */ var _perform_login_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../perform-login.service */ "./src/app/perform-login.service.ts");
+/* harmony import */ var _authenticate_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../authenticate.service */ "./src/app/authenticate.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -423,19 +430,30 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
+
 var LoginPageComponent = /** @class */ (function () {
-    function LoginPageComponent(showLoginService) {
+    function LoginPageComponent(showLoginService, peformLogin, authenticate, router) {
         this.showLoginService = showLoginService;
+        this.peformLogin = peformLogin;
+        this.authenticate = authenticate;
+        this.router = router;
+        this.credentials = { username: '', password: '' };
     }
     LoginPageComponent.prototype.ngOnInit = function () {
     };
     LoginPageComponent.prototype.hideMe = function () {
         this.showLoginService.changeShowStatus(false);
     };
-    LoginPageComponent.prototype.attemptLogin = function (userName, password) {
-        if (confirm("This isn't live and will currently only show you the username and password \nHit ok to confirm or cancel to stop"))
-            alert("Okay, inputed \nUser Name: " + userName +
-                "\nPassword: " + password);
+    LoginPageComponent.prototype.attemptLogin = function (username, password) {
+        var _this = this;
+        this.authenticate.authenticate(this.credentials, function () {
+            _this.router.navigateByUrl('/');
+        });
+        return false;
+    };
+    LoginPageComponent.prototype.doNothing = function () {
     };
     LoginPageComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -443,7 +461,9 @@ var LoginPageComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./login-page.component.html */ "./src/app/login-page/login-page.component.html"),
             styles: [__webpack_require__(/*! ./login-page.component.css */ "./src/app/login-page/login-page.component.css")]
         }),
-        __metadata("design:paramtypes", [_show_login_service__WEBPACK_IMPORTED_MODULE_1__["ShowLoginService"]])
+        __metadata("design:paramtypes", [_show_login_service__WEBPACK_IMPORTED_MODULE_1__["ShowLoginService"],
+            _perform_login_service__WEBPACK_IMPORTED_MODULE_2__["PerformLoginService"], _authenticate_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticateService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
     ], LoginPageComponent);
     return LoginPageComponent;
 }());
@@ -459,7 +479,7 @@ var LoginPageComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".loginBody{\r\n    position: relative;\r\n   margin:0px;\r\n   background-color :darkslategray;\r\n   overflow: hidden;\r\n }\r\n .loginForm{\r\n   margin:0px;\r\n   color:white;\r\n   text-align: right;\r\n }\r\n .loginButton{\r\n   padding: 5px;\r\n }\r\n .signUpButton{\r\n   padding: 5px;\r\n }\r\n "
+module.exports = ".loginBody{\r\n  position: relative;\r\n background-color :darkslategray;\r\n overflow: hidden;\r\n \r\n}\r\n.loginWrapper{\r\n  margin-right: auto;\r\n  float: right;\r\n}\r\n.loginForm{\r\n margin:0px;\r\n color:white;\r\n text-align: right;\r\n display: inline-flex;\r\n \r\n}\r\n.loginButton{\r\n padding: 5px;\r\n}\r\n.signUpButton{\r\n padding: 5px;\r\n}\r\n"
 
 /***/ }),
 
@@ -470,7 +490,7 @@ module.exports = ".loginBody{\r\n    position: relative;\r\n   margin:0px;\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class = 'loginBody'>\n  <div class= 'loginForm'>\n      <a  (click) = \"hideMe()\" [routerLink] = \"['/signUp']\">\n        <button class=\"signUpButton\" (keydown.enter) = \"doNothing()\"> Sign Up </button>\n        </a>\n    <form #loginForm= \"ngForm\" (ngSubmit)=\"attemptLogin(username.value, password.value)\">\n    User Name: <input #username (keyup.enter)=\"attemptLogin(username.value, password.value)\" name=\"username\"\n    [(ngModel)] =\"credentials.username\">\n    Password: <input  #password (keyup.enter)=\"attemptLogin(username.value, password.value)\" name=\"password\"\n    [(ngModel)] =\"credentials.password\" type=\"password\">\n  &nbsp;&nbsp;&nbsp;\n  <button type = \"submit\" class =\"loginButton\" >&nbsp;Login&nbsp;</button>\n    </form>\n  </div>\n  </div>"
+module.exports = "\n<div class = 'loginBody'>\n  <div class= 'loginWrapper'>\n  <div class= 'loginForm'>\n      <a  (click) = \"hideMe()\" [routerLink] = \"['/signUp']\">\n        <button class=\"signUpButton\" (keydown.enter) = \"doNothing()\"> Sign Up </button>\n        </a>\n    <form #loginForm= \"ngForm\" (ngSubmit)=\"attemptLogin(username.value, password.value)\">\n    User Name: <input #username (keyup.enter)=\"attemptLogin(username.value, password.value)\" name=\"username\"\n    [(ngModel)] =\"credentials.username\">\n    Password: <input  #password (keyup.enter)=\"attemptLogin(username.value, password.value)\" name=\"password\"\n    [(ngModel)] =\"credentials.password\" type=\"password\">\n  &nbsp;&nbsp;&nbsp;\n  <button type = \"submit\" class =\"loginButton\" >&nbsp;Login&nbsp;</button>\n    </form>\n    </div>\n  </div>\n  </div>"
 
 /***/ }),
 
@@ -630,7 +650,7 @@ var LogoutComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".container1{\t\r\n    position: relative;\r\n\t  width: 100%;\r\n\t  display: inline-flex;\r\n\t  flex-direction: row;\r\n\t  align-items: center;\r\n\t}\r\n\t.option1{\r\n\r\n\t}\r\n\t.selectorimg1{\r\n\tfloat: right;\r\n\r\n\t}\r\n\t.selector1, .right1{\r\n\t  flex: 1;\r\n\t}"
 
 /***/ }),
 
@@ -641,7 +661,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  about-button works!\n</p>\n"
+module.exports = "<div class =\"container1\" >\n  <div class=\"selector1\" id=\"selector1\"> \n    <div class= \"selectorimg1\" id=\"selectorimg1\" ></div>\n  </div>\n  <div class=\"option1\" id=\"option1\">\n    <a [routerLink]=\"['/about']\">\n    <img  src = \"/images/about.png\" style=\"float: right;\">\n    </a>\n  </div>\n  <div class = \"right1\"> \n  </div>"
 
 /***/ }),
 
@@ -668,6 +688,9 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var AboutButtonComponent = /** @class */ (function () {
     function AboutButtonComponent() {
+        this.state = 'none';
+        this.isEnter = false;
+        this.counter = 1;
     }
     AboutButtonComponent.prototype.ngOnInit = function () {
     };
@@ -675,11 +698,75 @@ var AboutButtonComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-about-button',
             template: __webpack_require__(/*! ./about-button.component.html */ "./src/app/main-menu/about-button/about-button.component.html"),
-            styles: [__webpack_require__(/*! ./about-button.component.css */ "./src/app/main-menu/about-button/about-button.component.css")]
+            styles: [__webpack_require__(/*! ./about-button.component.css */ "./src/app/main-menu/about-button/about-button.component.css")],
+            animations: []
         }),
         __metadata("design:paramtypes", [])
     ], AboutButtonComponent);
     return AboutButtonComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/main-menu/contact-button/contact-button.component.css":
+/*!***********************************************************************!*\
+  !*** ./src/app/main-menu/contact-button/contact-button.component.css ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/main-menu/contact-button/contact-button.component.html":
+/*!************************************************************************!*\
+  !*** ./src/app/main-menu/contact-button/contact-button.component.html ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n<div class =\"container1\" >\n  <div class=\"selector1\" id=\"selector1\">\n    <div class= \"selectorimg1\" id=\"selectorimg1\" > </div>\n  </div>\n  <div class=\"option1\" id=\"option1\">\n    <a [routerLink]=\"['/levelEditor']\">\n    <img  src = \"/images/contact.png\" style=\"float: right;\">\n    </a>\n  </div>\n  <div class = \"right1\"> \n  </div>"
+
+/***/ }),
+
+/***/ "./src/app/main-menu/contact-button/contact-button.component.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/main-menu/contact-button/contact-button.component.ts ***!
+  \**********************************************************************/
+/*! exports provided: ContactButtonComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContactButtonComponent", function() { return ContactButtonComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ContactButtonComponent = /** @class */ (function () {
+    function ContactButtonComponent() {
+    }
+    ContactButtonComponent.prototype.ngOnInit = function () {
+    };
+    ContactButtonComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-contact-button',
+            template: __webpack_require__(/*! ./contact-button.component.html */ "./src/app/main-menu/contact-button/contact-button.component.html"),
+            styles: [__webpack_require__(/*! ./contact-button.component.css */ "./src/app/main-menu/contact-button/contact-button.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ContactButtonComponent);
+    return ContactButtonComponent;
 }());
 
 
@@ -693,7 +780,7 @@ var AboutButtonComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".container1{\t\r\n    position: relative;\r\n\t  width: 100%;\r\n\t  display: flex;\r\n\t  flex-direction: row;\r\n    justify-content: center;\r\n\t}\r\n\t.option1{\r\n   \r\n\r\n\t}\r\n\t.selectorimg1{\r\n\tfloat: right;\r\n\r\n\t}\r\n\t.selector1, .right1{\r\n\t  flex: 1;\r\n\t}"
 
 /***/ }),
 
@@ -704,7 +791,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  level-edit-button works!\n</p>\n"
+module.exports = "\n<div class =\"container1\" >\n  <div class=\"selector1\" id=\"selector1\">\n    <div class= \"selectorimg1\" id=\"selectorimg1\" > </div>\n  </div>\n  <div class=\"option1\" id=\"option1\">\n    <a [routerLink]=\"['/levelEditor']\">\n    <img  src = \"/images/lvledit.png\" style=\"float: right;\">\n    </a>\n  </div>\n  <div class = \"right1\"> \n  </div>"
 
 /***/ }),
 
@@ -830,7 +917,7 @@ module.exports = "img {\r\n    display: block;\r\n    margin-left: auto;\r\n    
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<img src=\"https://github.com/AndoryuRenoa/MochiJump/blob/master/bin/background.png?raw=true\">\n"
+module.exports = "\n<img src=\"images/background.png\">\n"
 
 /***/ }),
 
