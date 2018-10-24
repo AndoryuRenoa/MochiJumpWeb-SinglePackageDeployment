@@ -51,9 +51,10 @@ public class MainController {
 			return "0.2.4";
 	}
 	
-	@RequestMapping("/user")
-	  public Principal user(Principal user) {
-	    return user;
+	@RequestMapping(path = "/user")
+	  public @ResponseBody String user(Principal user) {
+	    User firstNameFinder = userRepository.findByUserName(user.getName());
+	    return firstNameFinder.getUserFirstName();
 	  }
 	
 	

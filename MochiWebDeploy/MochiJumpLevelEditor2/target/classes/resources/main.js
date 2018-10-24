@@ -275,6 +275,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthenticateService", function() { return AuthenticateService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _show_login_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./show-login.service */ "./src/app/show-login.service.ts");
+/* harmony import */ var _show_logout_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./show-logout.service */ "./src/app/show-logout.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -286,18 +288,26 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
 var AuthenticateService = /** @class */ (function () {
-    function AuthenticateService(http) {
+    function AuthenticateService(http, showLoginService, showLogout) {
         this.http = http;
+        this.showLoginService = showLoginService;
+        this.showLogout = showLogout;
         this.authenticated = false;
     }
     AuthenticateService.prototype.authenticate = function (credentials, callback) {
         var _this = this;
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"](credentials ? {
-            authorization: 'Basic ' + btoa(credentials.username + ':' + credentials.password)
+            authorization: 'Basic ' + btoa(credentials.username + ':' + credentials.password),
         } : {});
-        this.http.get('user', { headers: headers }).subscribe(function (response) {
-            if (response['name']) {
+        this.http.get('/test/user', { headers: headers, responseType: 'text' }).subscribe(function (response) {
+            _this.userFirstName = response;
+            _this.showLoginService.changeShowStatus(false);
+            _this.showLogout.changeShowStatus(true);
+            console.log("Welcome " + response);
+            if (response.length > 0) {
                 _this.authenticated = true;
             }
             else {
@@ -306,11 +316,14 @@ var AuthenticateService = /** @class */ (function () {
             return callback && callback();
         });
     };
+    AuthenticateService.prototype.getUserName = function () {
+        return this.userFirstName;
+    };
     AuthenticateService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _show_login_service__WEBPACK_IMPORTED_MODULE_2__["ShowLoginService"], _show_logout_service__WEBPACK_IMPORTED_MODULE_3__["ShowLogoutService"]])
     ], AuthenticateService);
     return AuthenticateService;
 }());
@@ -506,9 +519,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _show_login_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../show-login.service */ "./src/app/show-login.service.ts");
-/* harmony import */ var _perform_login_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../perform-login.service */ "./src/app/perform-login.service.ts");
-/* harmony import */ var _authenticate_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../authenticate.service */ "./src/app/authenticate.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _show_logout_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../show-logout.service */ "./src/app/show-logout.service.ts");
+/* harmony import */ var _perform_login_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../perform-login.service */ "./src/app/perform-login.service.ts");
+/* harmony import */ var _authenticate_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../authenticate.service */ "./src/app/authenticate.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -523,12 +537,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(showLoginService, peformLogin, authenticate, router) {
+    function LoginComponent(showLoginService, peformLogin, authenticate, router, showLogout) {
         this.showLoginService = showLoginService;
         this.peformLogin = peformLogin;
         this.authenticate = authenticate;
         this.router = router;
+        this.showLogout = showLogout;
         this.credentials = { username: '', password: '' };
     }
     LoginComponent.prototype.ngOnInit = function () {
@@ -538,7 +554,10 @@ var LoginComponent = /** @class */ (function () {
     };
     LoginComponent.prototype.attemptLogin = function (username, password) {
         var _this = this;
-        this.authenticate.authenticate(this.credentials, function () {
+        this.authenticate.authenticate(this.credentials, function (response) {
+            console.log("Welcome " + response + " from login component");
+            _this.showLoginService.changeShowStatus(false);
+            _this.showLogout.changeShowStatus(true);
             _this.router.navigateByUrl('/');
         });
         return false;
@@ -552,8 +571,8 @@ var LoginComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")]
         }),
         __metadata("design:paramtypes", [_show_login_service__WEBPACK_IMPORTED_MODULE_1__["ShowLoginService"],
-            _perform_login_service__WEBPACK_IMPORTED_MODULE_2__["PerformLoginService"], _authenticate_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticateService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
+            _perform_login_service__WEBPACK_IMPORTED_MODULE_3__["PerformLoginService"], _authenticate_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticateService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"], _show_logout_service__WEBPACK_IMPORTED_MODULE_2__["ShowLogoutService"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -597,7 +616,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _show_login_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../show-login.service */ "./src/app/show-login.service.ts");
 /* harmony import */ var _show_logout_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../show-logout.service */ "./src/app/show-logout.service.ts");
-/* harmony import */ var _user_info_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user-info.service */ "./src/app/user-info.service.ts");
+/* harmony import */ var _authenticate_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../authenticate.service */ "./src/app/authenticate.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -612,16 +631,19 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var LogoutComponent = /** @class */ (function () {
-    function LogoutComponent(showLoginService, showLogout, userInfo) {
+    function LogoutComponent(showLoginService, showLogout, auth) {
         this.showLoginService = showLoginService;
         this.showLogout = showLogout;
-        this.userInfo = userInfo;
+        this.auth = auth;
         this.userName = "New User";
     }
     LogoutComponent.prototype.ngOnInit = function () {
-        this.userName = this.userInfo.getUserNameNoSub();
+        this.userName = this.auth.getUserName();
+        console.log("Logout Component onInit " + this.userName);
     };
     LogoutComponent.prototype.ngAfterViewInit = function () {
+        this.userName = this.auth.getUserName();
+        console.log("Logout Component AfterViewInit " + this.userName);
     };
     LogoutComponent.prototype.logUserOut = function () {
         this.showLogout.changeShowStatus(false);
@@ -634,7 +656,7 @@ var LogoutComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./logout.component.css */ "./src/app/logout/logout.component.css")]
         }),
         __metadata("design:paramtypes", [_show_login_service__WEBPACK_IMPORTED_MODULE_1__["ShowLoginService"], _show_logout_service__WEBPACK_IMPORTED_MODULE_2__["ShowLogoutService"],
-            _user_info_service__WEBPACK_IMPORTED_MODULE_3__["UserInfoService"]])
+            _authenticate_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticateService"]])
     ], LogoutComponent);
     return LogoutComponent;
 }());
