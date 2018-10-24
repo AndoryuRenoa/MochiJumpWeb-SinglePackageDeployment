@@ -7,16 +7,20 @@
   
   <form #loginForm= "ngForm" (ngSubmit)="signup()">
   Enter your first name here:&nbsp;&nbsp;<p></p>
-  <input #firstName (keyup.enter)= "signup()" [(ngModel)] ="newUserTemplate.userFirstName" 
+  <div *ngIf="firstName.errors.required">**Please Provide Your First Name**</div>
+  <input id= "firstName" #firstName (keyup.enter)= "signup()" [(ngModel)] ="newUserTemplate.userFirstName" 
   name ="userFirstName" type="text"><p></p>
   Enter your user name here:&nbsp;&nbsp;<p></p>
-  <input #userName (keyup.enter)= "signup()" [(ngModel)] ="newUserTemplate.userName"
+  <div *ngIf="userName.errors.required">**Please Provide a User Name**</div>
+  <input id = 'userName' #userName (keyup.enter)= "signup()" [(ngModel)] ="newUserTemplate.userName"
   name ="userName"type="text"><p></p>
   Enter your Email here:&nbsp;&nbsp;<p></p>
-  <input #name (keyup.enter)= "signup()" [(ngModel)] ="newUserTemplate.emailAddress"
+  <div *ngIf="firstName.errors.required">**Please Provide Your Email Address**</div>
+  <input id ='emailAddress' #emailAddress (keyup.enter)= "signup()" [(ngModel)] ="newUserTemplate.emailAddress"
   name ="emailAddress"type="text"><p></p>
   Enter your password here:&nbsp;&nbsp;<p></p>
-  <input #name (keyup.enter)= "signup()" [(ngModel)] ="newUserTemplate.password"
+  <div *ngIf="firstName.errors.required">**Please Provide a Password**</div>
+  <input id ='password' #password (keyup.enter)= "signup()" [(ngModel)] ="newUserTemplate.password"
   name ="password"type="password"><p></p>
   &nbsp;
   <button type="submit"> Sign me Up! </button>
