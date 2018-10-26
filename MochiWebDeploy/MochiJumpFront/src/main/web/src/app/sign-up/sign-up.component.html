@@ -5,7 +5,7 @@
   <p>
   This will be the signup page. Currently being tested
   
-  <form #loginForm= "ngForm" (ngSubmit)="signup()">
+  <form #loginForm= "ngForm" (ngSubmit)="signup()" [formGroup]="registerForm">
   Enter your first name here:&nbsp;&nbsp;<p></p>
   <div *ngIf="firstName.errors.required">**Please Provide Your First Name**</div>
   <input id= "firstName" #firstName (keyup.enter)= "signup()" [(ngModel)] ="newUserTemplate.userFirstName" 

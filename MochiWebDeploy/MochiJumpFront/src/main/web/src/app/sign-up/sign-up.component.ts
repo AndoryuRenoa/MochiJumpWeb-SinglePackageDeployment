@@ -4,6 +4,7 @@ import {ShowLogoutService} from '../show-logout.service';
 import { UserInfoService } from '../user-info.service';
 import { Router } from '@angular/router';
 import {SignUpServiceService} from '../sign-up-service.service'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
@@ -11,15 +12,19 @@ import {SignUpServiceService} from '../sign-up-service.service'
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit, OnDestroy{
+  registerForm: FormGroup;
 
-  newUserTemplate = {userFirstName: '', userName: '', emailAddress:'', password: ''};
+  newUserTemplate = {userFirstName: '', userName: '', emailAddress:'', password: '', };
 
   signupComplete : boolean = false;
 
   constructor(private showLoginService: ShowLoginService, private showLogout: ShowLogoutService, private router: Router,
-  private userInfo: UserInfoService, private signUp: SignUpServiceService) { }
+  private userInfo: UserInfoService, private signUp: SignUpServiceService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.registerForm = this.formBuilder.group({
+      
+    })
    
   }
   signup(){
