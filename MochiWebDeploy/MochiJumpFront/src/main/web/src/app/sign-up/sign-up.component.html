@@ -15,7 +15,7 @@
   <input id = 'userName' #userName (keyup.enter)= "signup()" [(ngModel)] ="newUserTemplate.userName"
   name ="userName"type="text"><p></p>
   Enter your Email here:&nbsp;&nbsp;<p></p>
-  <div *ngIf="firstName.errors.required">**Please Provide Your Email Address**</div>
+  <div *ngIf="emailAddress.errors.required">**Please Provide Your Email Address**</div>
   <input id ='emailAddress' #emailAddress (keyup.enter)= "signup()" [(ngModel)] ="newUserTemplate.emailAddress"
   name ="emailAddress"type="text"><p></p>
   Enter your password here:&nbsp;&nbsp;<p></p>
