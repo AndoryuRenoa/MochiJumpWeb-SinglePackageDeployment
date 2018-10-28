@@ -177,19 +177,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _about_about_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./about/about.component */ "./src/app/about/about.component.ts");
-/* harmony import */ var _draw_level_draw_level_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./draw-level/draw-level.component */ "./src/app/draw-level/draw-level.component.ts");
-/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
-/* harmony import */ var _logout_logout_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./logout/logout.component */ "./src/app/logout/logout.component.ts");
-/* harmony import */ var _main_menu_main_menu_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./main-menu/main-menu.component */ "./src/app/main-menu/main-menu.component.ts");
-/* harmony import */ var _mochi_face_mochi_face_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./mochi-face/mochi-face.component */ "./src/app/mochi-face/mochi-face.component.ts");
-/* harmony import */ var _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./sign-up/sign-up.component */ "./src/app/sign-up/sign-up.component.ts");
-/* harmony import */ var _main_menu_about_button_about_button_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./main-menu/about-button/about-button.component */ "./src/app/main-menu/about-button/about-button.component.ts");
-/* harmony import */ var _main_menu_level_edit_button_level_edit_button_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./main-menu/level-edit-button/level-edit-button.component */ "./src/app/main-menu/level-edit-button/level-edit-button.component.ts");
-/* harmony import */ var _sign_up_sign_up_complete_sign_up_complete_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./sign-up/sign-up-complete/sign-up-complete.component */ "./src/app/sign-up/sign-up-complete/sign-up-complete.component.ts");
-/* harmony import */ var _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./login-page/login-page.component */ "./src/app/login-page/login-page.component.ts");
-/* harmony import */ var _main_menu_contact_button_contact_button_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./main-menu/contact-button/contact-button.component */ "./src/app/main-menu/contact-button/contact-button.component.ts");
+/* harmony import */ var _rxweb_reactive_form_validators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @rxweb/reactive-form-validators */ "./node_modules/@rxweb/reactive-form-validators/@rxweb/reactive-form-validators.es5.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _about_about_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./about/about.component */ "./src/app/about/about.component.ts");
+/* harmony import */ var _draw_level_draw_level_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./draw-level/draw-level.component */ "./src/app/draw-level/draw-level.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _logout_logout_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./logout/logout.component */ "./src/app/logout/logout.component.ts");
+/* harmony import */ var _main_menu_main_menu_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./main-menu/main-menu.component */ "./src/app/main-menu/main-menu.component.ts");
+/* harmony import */ var _mochi_face_mochi_face_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./mochi-face/mochi-face.component */ "./src/app/mochi-face/mochi-face.component.ts");
+/* harmony import */ var _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./sign-up/sign-up.component */ "./src/app/sign-up/sign-up.component.ts");
+/* harmony import */ var _main_menu_about_button_about_button_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./main-menu/about-button/about-button.component */ "./src/app/main-menu/about-button/about-button.component.ts");
+/* harmony import */ var _main_menu_level_edit_button_level_edit_button_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./main-menu/level-edit-button/level-edit-button.component */ "./src/app/main-menu/level-edit-button/level-edit-button.component.ts");
+/* harmony import */ var _sign_up_sign_up_complete_sign_up_complete_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./sign-up/sign-up-complete/sign-up-complete.component */ "./src/app/sign-up/sign-up-complete/sign-up-complete.component.ts");
+/* harmony import */ var _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./login-page/login-page.component */ "./src/app/login-page/login-page.component.ts");
+/* harmony import */ var _main_menu_contact_button_contact_button_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./main-menu/contact-button/contact-button.component */ "./src/app/main-menu/contact-button/contact-button.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -215,14 +216,15 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var appRoutes = [
-    { path: 'about', component: _about_about_component__WEBPACK_IMPORTED_MODULE_7__["AboutComponent"] },
-    { path: 'mainmenu', component: _main_menu_main_menu_component__WEBPACK_IMPORTED_MODULE_11__["MainMenuComponent"] },
-    { path: 'levelEditor', component: _draw_level_draw_level_component__WEBPACK_IMPORTED_MODULE_8__["DrawLevelComponent"] },
-    { path: 'signUp', component: _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_13__["SignUpComponent"] },
-    { path: 'signUpComplete', component: _sign_up_sign_up_complete_sign_up_complete_component__WEBPACK_IMPORTED_MODULE_16__["SignUpCompleteComponent"] },
-    { path: 'login', component: _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_17__["LoginPageComponent"] },
-    { path: 'levelEditor', component: _draw_level_draw_level_component__WEBPACK_IMPORTED_MODULE_8__["DrawLevelComponent"] },
+    { path: 'about', component: _about_about_component__WEBPACK_IMPORTED_MODULE_8__["AboutComponent"] },
+    { path: 'mainmenu', component: _main_menu_main_menu_component__WEBPACK_IMPORTED_MODULE_12__["MainMenuComponent"] },
+    { path: 'levelEditor', component: _draw_level_draw_level_component__WEBPACK_IMPORTED_MODULE_9__["DrawLevelComponent"] },
+    { path: 'signUp', component: _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_14__["SignUpComponent"] },
+    { path: 'signUpComplete', component: _sign_up_sign_up_complete_sign_up_complete_component__WEBPACK_IMPORTED_MODULE_17__["SignUpCompleteComponent"] },
+    { path: 'login', component: _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_18__["LoginPageComponent"] },
+    { path: 'levelEditor', component: _draw_level_draw_level_component__WEBPACK_IMPORTED_MODULE_9__["DrawLevelComponent"] },
     { path: '', redirectTo: '/mainmenu', pathMatch: 'full' }
 ];
 var AppModule = /** @class */ (function () {
@@ -231,29 +233,30 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
-                _about_about_component__WEBPACK_IMPORTED_MODULE_7__["AboutComponent"],
-                _draw_level_draw_level_component__WEBPACK_IMPORTED_MODULE_8__["DrawLevelComponent"],
-                _login_login_component__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"],
-                _logout_logout_component__WEBPACK_IMPORTED_MODULE_10__["LogoutComponent"],
-                _main_menu_main_menu_component__WEBPACK_IMPORTED_MODULE_11__["MainMenuComponent"],
-                _mochi_face_mochi_face_component__WEBPACK_IMPORTED_MODULE_12__["MochiFaceComponent"],
-                _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_13__["SignUpComponent"],
-                _main_menu_about_button_about_button_component__WEBPACK_IMPORTED_MODULE_14__["AboutButtonComponent"],
-                _main_menu_level_edit_button_level_edit_button_component__WEBPACK_IMPORTED_MODULE_15__["LevelEditButtonComponent"],
-                _sign_up_sign_up_complete_sign_up_complete_component__WEBPACK_IMPORTED_MODULE_16__["SignUpCompleteComponent"],
-                _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_17__["LoginPageComponent"],
-                _main_menu_contact_button_contact_button_component__WEBPACK_IMPORTED_MODULE_18__["ContactButtonComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"],
+                _about_about_component__WEBPACK_IMPORTED_MODULE_8__["AboutComponent"],
+                _draw_level_draw_level_component__WEBPACK_IMPORTED_MODULE_9__["DrawLevelComponent"],
+                _login_login_component__WEBPACK_IMPORTED_MODULE_10__["LoginComponent"],
+                _logout_logout_component__WEBPACK_IMPORTED_MODULE_11__["LogoutComponent"],
+                _main_menu_main_menu_component__WEBPACK_IMPORTED_MODULE_12__["MainMenuComponent"],
+                _mochi_face_mochi_face_component__WEBPACK_IMPORTED_MODULE_13__["MochiFaceComponent"],
+                _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_14__["SignUpComponent"],
+                _main_menu_about_button_about_button_component__WEBPACK_IMPORTED_MODULE_15__["AboutButtonComponent"],
+                _main_menu_level_edit_button_level_edit_button_component__WEBPACK_IMPORTED_MODULE_16__["LevelEditButtonComponent"],
+                _sign_up_sign_up_complete_sign_up_complete_component__WEBPACK_IMPORTED_MODULE_17__["SignUpCompleteComponent"],
+                _login_page_login_page_component__WEBPACK_IMPORTED_MODULE_18__["LoginPageComponent"],
+                _main_menu_contact_button_contact_button_component__WEBPACK_IMPORTED_MODULE_19__["ContactButtonComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot(appRoutes),
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_3__["BrowserAnimationsModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"]
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"],
+                _rxweb_reactive_form_validators__WEBPACK_IMPORTED_MODULE_6__["RxReactiveFormsModule"]
             ],
             providers: [],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -1197,7 +1200,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class = \"thisBody\">\n  <a [routerLink] = \"['/']\">\n  <h2> Click here to go back to main menu </h2>\n  </a>\n  \n  <p>\n  Congratulations on using the fake sign up button! (also programatic routing works!)\n  </p>\n  </div>"
+module.exports = "<div class = \"thisBody\">\n  <a [routerLink] = \"['/']\">\n  <h2> Click here to go back to main menu </h2>\n  </a>\n  \n  <p>\n  You've been sent an email with an activation link. Please follow that link to activate your account.\n  </p>\n  </div>"
 
 /***/ }),
 
@@ -1249,7 +1252,7 @@ var SignUpCompleteComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".thisBody{\r\n    padding-left: 10px;\r\n  }"
+module.exports = ".thisBody{\r\n    padding-left: 10px;\r\n  }\r\n\r\n.redError{\r\n  color: red;\r\n}"
 
 /***/ }),
 
@@ -1260,7 +1263,7 @@ module.exports = ".thisBody{\r\n    padding-left: 10px;\r\n  }"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class = thisBody>\n  <a [routerLink] = \"['/']\">\n  <h2> [Click here to go back to main menu] </h2>\n  </a>\n  <p>\n  This will be the signup page. Currently being tested\n  \n  <form #loginForm= \"ngForm\" (ngSubmit)=\"signup()\">\n  Enter your first name here:&nbsp;&nbsp;<p></p>\n  <input #firstName (keyup.enter)= \"signup()\" [(ngModel)] =\"newUserTemplate.userFirstName\" \n  name =\"userFirstName\" type=\"text\"><p></p>\n  Enter your user name here:&nbsp;&nbsp;<p></p>\n  <input #userName (keyup.enter)= \"signup()\" [(ngModel)] =\"newUserTemplate.userName\"\n  name =\"userName\"type=\"text\"><p></p>\n  Enter your Email here:&nbsp;&nbsp;<p></p>\n  <input #name (keyup.enter)= \"signup()\" [(ngModel)] =\"newUserTemplate.emailAddress\"\n  name =\"emailAddress\"type=\"text\"><p></p>\n  Enter your password here:&nbsp;&nbsp;<p></p>\n  <input #name (keyup.enter)= \"signup()\" [(ngModel)] =\"newUserTemplate.password\"\n  name =\"password\"type=\"password\"><p></p>\n  &nbsp;\n  <button type=\"submit\"> Sign me Up! </button>\n  </form>\n  </div>"
+module.exports = "<div class = thisBody>\n  <a [routerLink] = \"['/']\">\n  <h2> [Click here to go back to main menu] </h2>\n  </a>\n  <p>\n  This will be the signup page. Currently being tested\n  \n  <form #loginForm= \"ngForm\" (ngSubmit)=\"signup()\" [formGroup]=\"registerForm\">\n    Enter your first name here:&nbsp;&nbsp;<p></p>\n      <div *ngIf=\"submitted && f.userFirstName.errors?.required\" class=\"redError\">**Please Provide Your First Name**</div>\n        <input  type=\"text\" formControlName=\"userFirstName\" class=\"form-control\">  \n          <p></p>\n    Enter your user name here:&nbsp;&nbsp;<p></p>\n      <div *ngIf=\"submitted && f.userName.errors?.required\" class=\"redError\">**Please Provide a User Name**</div>\n        <input type= \"text\" formControlName=\"userName\" class=\"form-control\">\n          <p></p>\n          <!-- stopped here-->\n    Enter your Email here:&nbsp;&nbsp;<p></p>\n      <div *ngIf=\"submitted && f.emailAddress.errors?.required\" class=\"redError\">**Please Provide Your Email Address**</div>\n      <div *ngIf=\"submitted && f.emailAddress.errors?.email\" class=\"redError\">**Email address must be valid**</div>\n        <input type=\"text\" formControlName=\"emailAddress\" class=\"form-control\">\n          <p></p>\n    Enter your password here:&nbsp;&nbsp;<p></p>\n      <div *ngIf=\"submitted && f.password.errors?.required\" class=\"redError\">**Please Provide a Password**</div>\n      <div *ngIf=\"submitted && f.password.errors?.required\" class=\"redError\">**Password must be 5 or more characters**</div>\n        <input type=\"password\" formControlName=\"password\" class=\"form-control\">\n          <p></p>\n    Re-Enter your password here:&nbsp;&nbsp;<p></p>\n      <div *ngIf=\"submitted && f.password2.errors\" class=\"redError\">**Passwords must match**</div>\n      <input type=\"password\" formControlName=\"password2\" class=\"form-control\">\n      \n           &nbsp;\n            <button type=\"submit\"> Sign me Up! </button>\n  </form>\n</div>"
 
 /***/ }),
 
@@ -1280,6 +1283,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _user_info_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user-info.service */ "./src/app/user-info.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _sign_up_service_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../sign-up-service.service */ "./src/app/sign-up-service.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _rxweb_reactive_form_validators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @rxweb/reactive-form-validators */ "./node_modules/@rxweb/reactive-form-validators/@rxweb/reactive-form-validators.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1295,21 +1300,58 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 var SignUpComponent = /** @class */ (function () {
-    function SignUpComponent(showLoginService, showLogout, router, userInfo, signUp) {
+    function SignUpComponent(showLoginService, showLogout, router, userInfo, signUp, formBuilder) {
         this.showLoginService = showLoginService;
         this.showLogout = showLogout;
         this.router = router;
         this.userInfo = userInfo;
         this.signUp = signUp;
+        this.formBuilder = formBuilder;
+        this.submitted = false;
+        this.passwordNotSame = true;
         this.newUserTemplate = { userFirstName: '', userName: '', emailAddress: '', password: '' };
         this.signupComplete = false;
     }
     SignUpComponent.prototype.ngOnInit = function () {
+        this.registerForm = this.formBuilder.group({
+            userFirstName: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            userName: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
+            emailAddress: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].email]],
+            password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].minLength(6)]],
+            password2: ['', _rxweb_reactive_form_validators__WEBPACK_IMPORTED_MODULE_7__["RxwebValidators"].compare({ fieldName: 'password' })]
+        });
     };
+    SignUpComponent.prototype.checkPasswords = function (group) {
+        var password = this.f.password.value;
+        var password2 = this.f.password2.value;
+        if (password == password2) {
+            return this.passwordNotSame = false;
+        }
+    };
+    Object.defineProperty(SignUpComponent.prototype, "f", {
+        get: function () { return this.registerForm.controls; },
+        enumerable: true,
+        configurable: true
+    });
     SignUpComponent.prototype.signup = function () {
+        var _this = this;
+        this.submitted = true;
+        this.newUserTemplate = {
+            userFirstName: this.f.userFirstName.value,
+            userName: this.f.userName.value,
+            emailAddress: this.f.emailAddress.value,
+            password: this.f.password.value
+        };
+        console.log(this.newUserTemplate);
+        if (this.registerForm.invalid) {
+            return;
+        }
         this.signUp.attemptSignUP(this.newUserTemplate, function () {
             console.log("signup attempted");
+            _this.router.navigate(['/signUpComplete']);
         });
     };
     SignUpComponent.prototype.saveName = function (userName) {
@@ -1337,7 +1379,7 @@ var SignUpComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./sign-up.component.css */ "./src/app/sign-up/sign-up.component.css")]
         }),
         __metadata("design:paramtypes", [_show_login_service__WEBPACK_IMPORTED_MODULE_1__["ShowLoginService"], _show_logout_service__WEBPACK_IMPORTED_MODULE_2__["ShowLogoutService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
-            _user_info_service__WEBPACK_IMPORTED_MODULE_3__["UserInfoService"], _sign_up_service_service__WEBPACK_IMPORTED_MODULE_5__["SignUpServiceService"]])
+            _user_info_service__WEBPACK_IMPORTED_MODULE_3__["UserInfoService"], _sign_up_service_service__WEBPACK_IMPORTED_MODULE_5__["SignUpServiceService"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"]])
     ], SignUpComponent);
     return SignUpComponent;
 }());

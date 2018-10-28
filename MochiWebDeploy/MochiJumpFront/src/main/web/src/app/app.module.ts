@@ -4,6 +4,7 @@ import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { RxReactiveFormsModule } from "@rxweb/reactive-form-validators"
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
@@ -52,7 +53,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
     ReactiveFormsModule,FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RxReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,25 +7,28 @@
   
   <form #loginForm= "ngForm" (ngSubmit)="signup()" [formGroup]="registerForm">
     Enter your first name here:&nbsp;&nbsp;<p></p>
-    <!-- there are pieces of bootstrap 4 code in here-->
-      <div *ngIf="f.userFirstName.errors.required">**Please Provide Your First Name**</div>
-        <input  type="text" formControlName="userFirstName" class="form-control" 
-        [(ngModel)] ="newUserTemplate.userFirstName" >  
+      <div *ngIf="submitted && f.userFirstName.errors?.required" class="redError">**Please Provide Your First Name**</div>
+        <input  type="text" formControlName="userFirstName" class="form-control">  
           <p></p>
     Enter your user name here:&nbsp;&nbsp;<p></p>
-      <div *ngIf="f.userName.errors.required">**Please Provide a User Name**</div>
-        <input type= "text" formControlName="userName" class="form-control" 
-        [(ngModel)] ="newUserTemplate.userName">
+      <div *ngIf="submitted && f.userName.errors?.required" class="redError">**Please Provide a User Name**</div>
+        <input type= "text" formControlName="userName" class="form-control">
           <p></p>
           <!-- stopped here-->
     Enter your Email here:&nbsp;&nbsp;<p></p>
-      <div *ngIf="emailAddress.errors.required">**Please Provide Your Email Address**</div>
-        <input id ='emailAddress' #emailAddress (keyup.enter)= "signup()" [(ngModel)] ="newUserTemplate.emailAddress"
-        name ="emailAddress"type="text"><p></p>
+      <div *ngIf="submitted && f.emailAddress.errors?.required" class="redError">**Please Provide Your Email Address**</div>
+      <div *ngIf="submitted && f.emailAddress.errors?.email" class="redError">**Email address must be valid**</div>
+        <input type="text" formControlName="emailAddress" class="form-control">
+          <p></p>
     Enter your password here:&nbsp;&nbsp;<p></p>
-      <div *ngIf="firstName.errors.required">**Please Provide a Password**</div>
-        <input id ='password' #password (keyup.enter)= "signup()" [(ngModel)] ="newUserTemplate.password"
-         name ="password"type="password"><p></p>
+      <div *ngIf="submitted && f.password.errors?.required" class="redError">**Please Provide a Password**</div>
+      <div *ngIf="submitted && f.password.errors?.required" class="redError">**Password must be 5 or more characters**</div>
+        <input type="password" formControlName="password" class="form-control">
+          <p></p>
+    Re-Enter your password here:&nbsp;&nbsp;<p></p>
+      <div *ngIf="submitted && f.password2.errors" class="redError">**Passwords must match**</div>
+      <input type="password" formControlName="password2" class="form-control">
+      
            &nbsp;
             <button type="submit"> Sign me Up! </button>
   </form>
