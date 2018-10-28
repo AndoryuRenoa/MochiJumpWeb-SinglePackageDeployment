@@ -14,9 +14,10 @@
           <p></p>
     Enter your user name here:&nbsp;&nbsp;<p></p>
       <div *ngIf="f.userName.errors.required">**Please Provide a User Name**</div>
-      <!-- stopped here-->
-        <input id = 'userName' #userName (keyup.enter)= "signup()" [(ngModel)] ="newUserTemplate.userName"
-        name ="userName"type="text"><p></p>
+        <input type= "text" formControlName="userName" class="form-control" 
+        [(ngModel)] ="newUserTemplate.userName">
+          <p></p>
+          <!-- stopped here-->
     Enter your Email here:&nbsp;&nbsp;<p></p>
       <div *ngIf="emailAddress.errors.required">**Please Provide Your Email Address**</div>
         <input id ='emailAddress' #emailAddress (keyup.enter)= "signup()" [(ngModel)] ="newUserTemplate.emailAddress"
