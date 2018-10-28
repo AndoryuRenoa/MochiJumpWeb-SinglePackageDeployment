@@ -6,23 +6,26 @@
   This will be the signup page. Currently being tested
   
   <form #loginForm= "ngForm" (ngSubmit)="signup()" [formGroup]="registerForm">
-  Enter your first name here:&nbsp;&nbsp;<p></p>
-  <div *ngIf="firstName.errors.required">**Please Provide Your First Name**</div>
-  <input id= "firstName" #firstName (keyup.enter)= "signup()" [(ngModel)] ="newUserTemplate.userFirstName" 
-  name ="userFirstName" type="text"><p></p>
-  Enter your user name here:&nbsp;&nbsp;<p></p>
-  <div *ngIf="userName.errors.required">**Please Provide a User Name**</div>
-  <input id = 'userName' #userName (keyup.enter)= "signup()" [(ngModel)] ="newUserTemplate.userName"
-  name ="userName"type="text"><p></p>
-  Enter your Email here:&nbsp;&nbsp;<p></p>
-  <div *ngIf="emailAddress.errors.required">**Please Provide Your Email Address**</div>
-  <input id ='emailAddress' #emailAddress (keyup.enter)= "signup()" [(ngModel)] ="newUserTemplate.emailAddress"
-  name ="emailAddress"type="text"><p></p>
-  Enter your password here:&nbsp;&nbsp;<p></p>
-  <div *ngIf="firstName.errors.required">**Please Provide a Password**</div>
-  <input id ='password' #password (keyup.enter)= "signup()" [(ngModel)] ="newUserTemplate.password"
-  name ="password"type="password"><p></p>
-  &nbsp;
-  <button type="submit"> Sign me Up! </button>
+    Enter your first name here:&nbsp;&nbsp;<p></p>
+    <!-- there are pieces of bootstrap 4 code in here-->
+      <div *ngIf="f.userFirstName.errors.required">**Please Provide Your First Name**</div>
+        <input  type="text" formControlName="userFirstName" class="form-control" 
+        [(ngModel)] ="newUserTemplate.userFirstName" >  
+          <p></p>
+    Enter your user name here:&nbsp;&nbsp;<p></p>
+      <div *ngIf="f.userName.errors.required">**Please Provide a User Name**</div>
+      <!-- stopped here-->
+        <input id = 'userName' #userName (keyup.enter)= "signup()" [(ngModel)] ="newUserTemplate.userName"
+        name ="userName"type="text"><p></p>
+    Enter your Email here:&nbsp;&nbsp;<p></p>
+      <div *ngIf="emailAddress.errors.required">**Please Provide Your Email Address**</div>
+        <input id ='emailAddress' #emailAddress (keyup.enter)= "signup()" [(ngModel)] ="newUserTemplate.emailAddress"
+        name ="emailAddress"type="text"><p></p>
+    Enter your password here:&nbsp;&nbsp;<p></p>
+      <div *ngIf="firstName.errors.required">**Please Provide a Password**</div>
+        <input id ='password' #password (keyup.enter)= "signup()" [(ngModel)] ="newUserTemplate.password"
+         name ="password"type="password"><p></p>
+           &nbsp;
+            <button type="submit"> Sign me Up! </button>
   </form>
-  </div>
+</div>

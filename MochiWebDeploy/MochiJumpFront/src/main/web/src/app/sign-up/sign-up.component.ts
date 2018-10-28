@@ -30,7 +30,16 @@ export class SignUpComponent implements OnInit, OnDestroy{
     })
    
   }
+
+  get f(){ return this.registerForm.controls}
+
   signup(){
+
+    if (this.registerForm.invalid){
+      return
+    }
+
+
     this.signUp.attemptSignUP(this.newUserTemplate, ()=>{
       console.log("signup attempted");
 
