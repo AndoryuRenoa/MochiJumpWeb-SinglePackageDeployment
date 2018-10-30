@@ -16,6 +16,7 @@ export class SignUpComponent implements OnInit, OnDestroy{
   registerForm: FormGroup;
   submitted :boolean = false;
   passwordNotSame :boolean = true;
+  nameTaken: boolean = false;
 
   newUserTemplate = {userFirstName: '', userName: '', emailAddress:'', password: ''};
 
@@ -32,7 +33,8 @@ export class SignUpComponent implements OnInit, OnDestroy{
       password: ['', [Validators.required, Validators.minLength(6)]],
       password2: ['', RxwebValidators.compare({fieldName: 'password'})]
     });
-   
+
+    this.signUp.getNameTaken().subscribe(res => this.nameTaken = res);
   }
 
   checkPasswords (group: FormGroup){
@@ -49,6 +51,7 @@ export class SignUpComponent implements OnInit, OnDestroy{
 
   signup(){
     this.submitted=true;
+    let response: string = null;
 
     this.newUserTemplate = { 
       userFirstName: this.f.userFirstName.value, 
@@ -57,16 +60,11 @@ export class SignUpComponent implements OnInit, OnDestroy{
       password: this.f.password.value
     };
 
-    console.log(this.newUserTemplate);
-
-
     if (this.registerForm.invalid){
       return
     }
 
-    this.signUp.attemptSignUP(this.newUserTemplate, ()=>{
-      console.log("signup attempted");
-      this.router.navigate(['/signUpComplete']);
+     response =this.signUp.attemptSignUP(this.newUserTemplate, (res)=>{
     });
 
   }

@@ -1147,6 +1147,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignUpServiceService", function() { return SignUpServiceService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1158,22 +1160,40 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
 var SignUpServiceService = /** @class */ (function () {
-    function SignUpServiceService(http) {
+    function SignUpServiceService(http, router) {
         this.http = http;
+        this.router = router;
         this.signupURL = "/test/newUserCreation";
+        this.nameTaken = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
     }
     SignUpServiceService.prototype.attemptSignUP = function (userTemplate, callback) {
-        this.http.post(this.signupURL, userTemplate).subscribe(function (res) {
-            return console.log(JSON.stringify(res));
+        var _this = this;
+        this.http.post(this.signupURL, userTemplate, { headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"](), responseType: 'text' })
+            .subscribe(function (res) {
+            console.log(JSON.stringify(res));
+            if (res == "Name Taken") {
+                _this.setNameTaken(true);
+            }
+            else {
+                _this.router.navigate(['/signUpComplete']);
+            }
         });
         return callback && callback();
+    };
+    SignUpServiceService.prototype.setNameTaken = function (isNameTaken) {
+        this.nameTaken.next(isNameTaken);
+    };
+    SignUpServiceService.prototype.getNameTaken = function () {
+        return this.nameTaken.asObservable();
     };
     SignUpServiceService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], SignUpServiceService);
     return SignUpServiceService;
 }());
@@ -1263,7 +1283,7 @@ module.exports = ".thisBody{\r\n    padding-left: 10px;\r\n  }\r\n\r\n.redError{
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class = thisBody>\n  <a [routerLink] = \"['/']\">\n  <h2> [Click here to go back to main menu] </h2>\n  </a>\n  <p>\n  This will be the signup page. Currently being tested\n  \n  <form #loginForm= \"ngForm\" (ngSubmit)=\"signup()\" [formGroup]=\"registerForm\">\n    Enter your first name here:&nbsp;&nbsp;<p></p>\n      <div *ngIf=\"submitted && f.userFirstName.errors?.required\" class=\"redError\">**Please Provide Your First Name**</div>\n        <input  type=\"text\" formControlName=\"userFirstName\" class=\"form-control\">  \n          <p></p>\n    Enter your user name here:&nbsp;&nbsp;<p></p>\n      <div *ngIf=\"submitted && f.userName.errors?.required\" class=\"redError\">**Please Provide a User Name**</div>\n        <input type= \"text\" formControlName=\"userName\" class=\"form-control\">\n          <p></p>\n          <!-- stopped here-->\n    Enter your Email here:&nbsp;&nbsp;<p></p>\n      <div *ngIf=\"submitted && f.emailAddress.errors?.required\" class=\"redError\">**Please Provide Your Email Address**</div>\n      <div *ngIf=\"submitted && f.emailAddress.errors?.email\" class=\"redError\">**Email address must be valid**</div>\n        <input type=\"text\" formControlName=\"emailAddress\" class=\"form-control\">\n          <p></p>\n    Enter your password here:&nbsp;&nbsp;<p></p>\n      <div *ngIf=\"submitted && f.password.errors?.required\" class=\"redError\">**Please Provide a Password**</div>\n      <div *ngIf=\"submitted && f.password.errors?.required\" class=\"redError\">**Password must be 5 or more characters**</div>\n        <input type=\"password\" formControlName=\"password\" class=\"form-control\">\n          <p></p>\n    Re-Enter your password here:&nbsp;&nbsp;<p></p>\n      <div *ngIf=\"submitted && f.password2.errors\" class=\"redError\">**Passwords must match**</div>\n      <input type=\"password\" formControlName=\"password2\" class=\"form-control\">\n      \n           &nbsp;\n            <button type=\"submit\"> Sign me Up! </button>\n  </form>\n</div>"
+module.exports = "<div class = thisBody>\n  <a [routerLink] = \"['/']\">\n  <h2> [Click here to go back to main menu] </h2>\n  </a>\n  <p>\n  This will be the signup page. Currently being tested\n  \n  <form #loginForm= \"ngForm\" (ngSubmit)=\"signup()\" [formGroup]=\"registerForm\">\n    Enter your first name here:&nbsp;&nbsp;<p></p>\n      <div *ngIf=\"submitted && f.userFirstName.errors?.required\" class=\"redError\">**Please Provide Your First Name**</div>\n        <input  type=\"text\" formControlName=\"userFirstName\" class=\"form-control\">  \n          <p></p>\n    Enter your user name here:&nbsp;&nbsp;<p></p>\n      <div *ngIf=\"submitted && f.userName.errors?.required\" class=\"redError\">**Please Provide a User Name**</div>\n      <div *ngIf=\"submitted && nameTaken\" class=\"redError\">**This user name is already taken, please select a new one**</div>\n        <input type= \"text\" formControlName=\"userName\" class=\"form-control\">\n          <p></p>\n          <!-- stopped here-->\n    Enter your Email here:&nbsp;&nbsp;<p></p>\n      <div *ngIf=\"submitted && f.emailAddress.errors?.required\" class=\"redError\">**Please Provide Your Email Address**</div>\n      <div *ngIf=\"submitted && f.emailAddress.errors?.email\" class=\"redError\">**Email address must be valid**</div>\n        <input type=\"text\" formControlName=\"emailAddress\" class=\"form-control\">\n          <p></p>\n    Enter your password here:&nbsp;&nbsp;<p></p>\n      <div *ngIf=\"submitted && f.password.errors?.required\" class=\"redError\">**Please Provide a Password**</div>\n      <div *ngIf=\"submitted && f.password.errors?.required\" class=\"redError\">**Password must be 5 or more characters**</div>\n        <input type=\"password\" formControlName=\"password\" class=\"form-control\">\n          <p></p>\n    Re-Enter your password here:&nbsp;&nbsp;<p></p>\n      <div *ngIf=\"submitted && f.password2.errors\" class=\"redError\">**Passwords must match**</div>\n      <input type=\"password\" formControlName=\"password2\" class=\"form-control\">\n      \n           &nbsp;\n            <button type=\"submit\"> Sign me Up! </button>\n  </form>\n</div>"
 
 /***/ }),
 
@@ -1312,10 +1332,12 @@ var SignUpComponent = /** @class */ (function () {
         this.formBuilder = formBuilder;
         this.submitted = false;
         this.passwordNotSame = true;
+        this.nameTaken = false;
         this.newUserTemplate = { userFirstName: '', userName: '', emailAddress: '', password: '' };
         this.signupComplete = false;
     }
     SignUpComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.registerForm = this.formBuilder.group({
             userFirstName: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
             userName: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
@@ -1323,6 +1345,7 @@ var SignUpComponent = /** @class */ (function () {
             password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].minLength(6)]],
             password2: ['', _rxweb_reactive_form_validators__WEBPACK_IMPORTED_MODULE_7__["RxwebValidators"].compare({ fieldName: 'password' })]
         });
+        this.signUp.getNameTaken().subscribe(function (res) { return _this.nameTaken = res; });
     };
     SignUpComponent.prototype.checkPasswords = function (group) {
         var password = this.f.password.value;
@@ -1337,21 +1360,18 @@ var SignUpComponent = /** @class */ (function () {
         configurable: true
     });
     SignUpComponent.prototype.signup = function () {
-        var _this = this;
         this.submitted = true;
+        var response = null;
         this.newUserTemplate = {
             userFirstName: this.f.userFirstName.value,
             userName: this.f.userName.value,
             emailAddress: this.f.emailAddress.value,
             password: this.f.password.value
         };
-        console.log(this.newUserTemplate);
         if (this.registerForm.invalid) {
             return;
         }
-        this.signUp.attemptSignUP(this.newUserTemplate, function () {
-            console.log("signup attempted");
-            _this.router.navigate(['/signUpComplete']);
+        response = this.signUp.attemptSignUP(this.newUserTemplate, function (res) {
         });
     };
     SignUpComponent.prototype.saveName = function (userName) {

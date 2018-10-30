@@ -12,6 +12,7 @@
           <p></p>
     Enter your user name here:&nbsp;&nbsp;<p></p>
       <div *ngIf="submitted && f.userName.errors?.required" class="redError">**Please Provide a User Name**</div>
+      <div *ngIf="submitted && nameTaken" class="redError">**This user name is already taken, please select a new one**</div>
         <input type= "text" formControlName="userName" class="form-control">
           <p></p>
           <!-- stopped here-->

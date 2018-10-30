@@ -74,6 +74,13 @@ public class MainController {
 	public @ResponseBody String addUser(@RequestParam String firstName, @RequestParam String userName,
 			@RequestParam String emailAddress, @RequestParam String password){
 		User newUser = new User ();
+		User nameTaken = null;
+		try {
+			nameTaken = userRepository.findByUserName(userName);
+			return "Name Taken";
+		}catch (Exception e) {
+			
+		}
 		newUser.setUserFirstName(firstName);
 		newUser.setUserName(userName);
 		newUser.setEmailAddress(emailAddress);
@@ -158,6 +165,15 @@ public class MainController {
 	public @ResponseBody String makeNewUser (@RequestBody NewUserTemplate newUserT) {
 		Random rand = new Random();
 		User newUser = new User();
+		User nameTaken = null;
+		try {
+			nameTaken = userRepository.findByUserName(newUserT.getUserName());
+		}catch (Exception e) {
+			// to be expected
+		}
+		if (nameTaken != null) {
+			return "Name Taken";
+		}
 		newUser.setEmailAddress(newUserT.getEmailAddress());
 		newUser.setIsAccountNonLocked(false);
 		newUser.setKeyNum(rand.nextLong());
