@@ -36,6 +36,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
         .antMatchers("/levelEditor").authenticated()
         .anyRequest().authenticated()
         .and()
+        .requiresChannel().anyRequest().requiresSecure()
+        .and()
         .formLogin()
         .loginPage("/login");
         /*
