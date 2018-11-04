@@ -12,10 +12,10 @@ This is a spring-boot app that serves up an angular front end.
 
 3. Create new mailer api for sending emails for account activation [Done]
 
-4. Create form validators
+4. Create form validators [Done]
 
-5. Set up https for mochijump.com
+5. Set up https for mochijump.com [Done]
 
 ## Notes
 
-I've got the SSL certificate. Need to deploy it in the Spring app
+This is currently live. No longer directly working in the repo due to sensative material
